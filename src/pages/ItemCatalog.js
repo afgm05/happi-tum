@@ -24,13 +24,13 @@ export default function ItemCatalog() {
 
 	return (
 		<>
-			<h1>Foods and Beverages</h1>
+			<h1>Food and Beverages</h1>
 			
-			<Row className="justify-content-start"> 
+			{/*<Row className="justify-content-start"> 
 
 				<CustomerView allItems={allItems} /> 
 
-			</Row>
+			</Row>*/}
 		
 		</>
 
