@@ -3,12 +3,11 @@ import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import './App.css';
 import Home from './pages/Home';
-import ItemCatalog from './pages/ItemCatalog';
+import ProductCatalog from './pages/ProductCatalog';
 import ErrorPage from './pages/ErrorPage';
 import NavBar from './components/NavBar';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Try from './pages/Try';
 import Logout from './components/Logout';
 import { UserProvider } from './UserContext';
 
@@ -31,12 +30,11 @@ function App() {
           <NavBar />
           <Routes>
               <Route path="/" element={ <Home /> }/>
-              <Route path="/items" element={ <ItemCatalog /> }/>
+              <Route path="/products" element={ <ProductCatalog /> }/>
               <Route path="/login" element={ <Login /> }/>
               <Route path="/logout" element={ <Logout /> }/>
               <Route path="/register" element={ <Register /> }/>
               <Route path="*" element={ <ErrorPage /> } />
-              <Route path="/try" element={ <Try /> } />
           </Routes>    
         </Container>      
       </BrowserRouter>

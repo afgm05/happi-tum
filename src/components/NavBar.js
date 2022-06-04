@@ -16,7 +16,7 @@ export default function NavBar() {
 		        <Navbar.Collapse id="basic-navbar-nav">
 		              <Nav className="ms-auto">
 		                <Nav.Link  as={Link} to="/">Home</Nav.Link>
-		                <Nav.Link  as={Link} to="/items">Catalog</Nav.Link>
+		                <Nav.Link  as={Link} to="/products">Catalog</Nav.Link>
 
 		                {(user.accessToken !== null) ?
 		                	<Nav.Link as={Link} to="/logout">Logout</Nav.Link>

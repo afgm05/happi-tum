@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
-import ItemCard from './ItemCard';
+import ProductCard from './ProductCard';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 
 
-export default function CustomerView({allItems}) {
+export default function CustomerView({productsData}) {
 
-	const [ activeItems, setActiveItems ] = useState([])
+	const [ activeProducts, setActiveProducts ] = useState([])
 
 	useEffect(() => {
 
-		const activeItemsArray = allItems.map(item => {
+		const activeProductsArr = productsData.map(product => {
 			
-			if (item.isActive === true) {
+			if (product.isActive === true) {
 
 				return (
 					<Col md="auto" className="justify-content-center">
-					<ItemCard key={item._id} itemProp={item}/>
+					<ProductCard key={product._id} productProp={product}/>
 					</Col>
 				);
 
@@ -26,13 +26,13 @@ export default function CustomerView({allItems}) {
 			}
 		})
 
-		setActiveItems(activeItemsArray)
+		setActiveProducts(activeProductsArr)
 
-	}, [allItems])
+	}, [productsData])
 
 	return (
 		<>
-			{activeItems}
+			{activeProducts}
 		</>
 	);
 }

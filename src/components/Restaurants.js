@@ -1,7 +1,7 @@
 import { Carousel, Card, Button } from 'react-bootstrap';
 
 import { useState } from 'react';
-import ItemCard from './ItemCard';
+
 
 
 
