@@ -4,8 +4,7 @@ import CustomerView from '../components/CustomerView';
 
 export default function ProductCatalog() {
 
-	const [ allProducts, setAllProducts ] = useState([])
-
+	const [ allProducts, setAllProducts ] = useState([]);
 	
 	const fetchData = () => {
 		fetch('http://localhost:4000/products/active')

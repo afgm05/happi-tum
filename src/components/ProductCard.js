@@ -7,10 +7,17 @@ export default function ProductCard({productProp}) {
 
 	const { _id, name, description, price, image } = productProp;
 
+	let arrayData = image.data.data	
+	let bytes = [].slice.call(new Uint8Array(arrayData));
+	let binary = '';
+		bytes.forEach((b) => binary += String.fromCharCode(b))
+	
+	const base64String = btoa(binary)
+
 	return (		
 
 		<Card style={{ width: '18rem' }}>
-		  <Card.Img variant="top" src={{image}}/>
+		  <Card.Img variant="top" src={`data:image/png;base64,${base64String}`} />
 		  <Card.Body>
 		    <Card.Title> { name } </Card.Title>
 		    <Card.Text> { description } </Card.Text>
@@ -22,32 +29,4 @@ export default function ProductCard({productProp}) {
 	);
 	
 }
-
-
-ProductCard.propTypes = {
-	
-	Prop: PropTypes.shape({
-		
-		name: PropTypes.string.isRequired,
-		description: PropTypes.string.isRequired,
-		price: PropTypes.number.isRequired
-
-	})
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
