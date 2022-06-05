@@ -14,8 +14,8 @@ export default function CustomerView({productsData}) {
 			if (product.isActive === true) {
 
 				return (
-					<Col md="auto" className="justify-content-center">
-					<ProductCard key={product._id} productProp={product}/>
+					<Col md="auto" className="justify-content-center" key={product._id}>
+					<ProductCard  productProp={product}/>
 					</Col>
 				);
 

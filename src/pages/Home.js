@@ -1,5 +1,5 @@
 import Location from '../components/Location';
-import Restaurants from '../components/Restaurants';
+import ActiveStores from '../components/ActiveStores';
 
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
 	return (
 		<>	 
 			<Location />		
-			<Restaurants />		
+			<ActiveStores />
 		</>
 	);
 

@@ -30,7 +30,6 @@ export default function Register() {
 	}, [firstName, lastName, email, password, verifyPassword])
 	
 
-
 	function registerUser(e) {
 		e.preventDefault();
 

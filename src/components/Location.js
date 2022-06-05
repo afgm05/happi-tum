@@ -19,7 +19,7 @@ export default function Location() {
 	
 		<>
 			<DropdownButton
-			alignRight
+			
 			title={title}
 			id="dropdown-menu-align-right"
 			onSelect={handleSelect}
