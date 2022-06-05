@@ -7,7 +7,7 @@ export default function ProductCatalog() {
 	const [ allProducts, setAllProducts ] = useState([]);
 	
 	const fetchData = () => {
-		fetch('http://localhost:4000/products/active')
+		fetch('https://happitum-trial.herokuapp.com/products/active')
 		.then(res => res.json())
 		.then(data => {
 			setAllProducts(data)
