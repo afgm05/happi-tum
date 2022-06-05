@@ -34,7 +34,7 @@ export default function Register() {
 	function registerUser(e) {
 		e.preventDefault();
 
-		fetch('https://happitum-trial.herokuapp.com/users/register', {
+		fetch('http://localhost:4000/users/register', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
