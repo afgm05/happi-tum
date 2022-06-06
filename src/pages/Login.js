@@ -6,7 +6,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Login() {
 
-const navigate = useNavigate();
+//const navigate = useNavigate();
 const { user, setUser } = useContext(UserContext);
 const [ email, setEmail ] = useState('');
 const [ password, setPassword ] = useState('');
@@ -52,7 +52,7 @@ function authentication(e) {
 			})
 			.then(res => res.json())
 			.then(data => {
-				console.log(data)
+				
 
 				if(data.isAdmin === true) {
 					localStorage.setItem('isAdmin', data.isAdmin)

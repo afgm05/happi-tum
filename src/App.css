@@ -8,3 +8,23 @@
 #restaurants {
   background-color: pink;
 }
+
+/***Pages***/
+/*ProductDetails.js*/
+
+#product {
+
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/***Components***/
+
+/*AddOrder.js*/
+.count {
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+}

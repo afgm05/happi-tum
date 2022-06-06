@@ -41,7 +41,7 @@ export default function ActiveStores() {
 
 	}, [allStores])
 	
-	console.log(allStores)
+
 	return (
 		<>
 			<h2>Active stores</h2>		
