@@ -20,39 +20,25 @@ export default function ProductCatalogByStore() {
 	}, [])
 
 	useEffect(() => {
-
 		const storeProductsArr = storeProducts.map(product => {
-			
 			if (product.isActive === true) {
-
-				return (
-					
+				return (					
 					<Col key={product._id}>				
 					<ProductCard productProp={product}/>
 					</Col>
 				);
-
 			} else {
-
 				return null;
-
 			}
 		})
-
 		setActiveProducts(storeProductsArr);
-
-	}, [storeProducts])
-	
+	}, [storeProducts])	
 
 	return (
 		<>
-			<h1>Food and Beverages</h1>
-			
-			{ActiveProducts}
-			
-
+			<h1>Food and Beverages</h1>			
+			{ActiveProducts}			
 		</>
-
 	);
 }
 

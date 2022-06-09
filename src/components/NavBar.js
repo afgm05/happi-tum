@@ -18,11 +18,15 @@ export default function NavBar() {
 		                <Nav.Link  as={Link} to="/">Home</Nav.Link>
 
 		                {(user.accessToken !== null) ?
-		                	<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+		                	<>
+			                	<Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+			                	<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+			                </>
 		                	:
 		                	<>
 		                		<Nav.Link as={Link} to="/login">Login</Nav.Link>
 		                		<Nav.Link as={Link} to="/register">Register</Nav.Link>
+
 		                	</>
 		                }
 		               

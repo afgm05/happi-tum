@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
+
+
 export default function ProductCard({productProp}) {
 
 	const { _id, name, description, price, image } = productProp;
@@ -22,13 +24,13 @@ export default function ProductCard({productProp}) {
 	return (		
 
 		<Card style={{ width: '18rem', cursor: 'pointer' }} onClick={() => handleClick()}>
-		  <Card.Img variant="top" src={`data:image/png;base64,${base64String}`} />
-		  <Card.Body>
-		    <Card.Title> { name } </Card.Title>
-		    <Card.Text> { description } </Card.Text>
-		    <Card.Text>Php { price } </Card.Text>
-		  </Card.Body>
-		</Card>			
+		 	<Card.Img variant="top" src={`data:image/png;base64,${base64String}`} />
+		  	<Card.Body>
+			    <Card.Title> { name } </Card.Title>
+			    <Card.Text> { description } </Card.Text>
+			    <Card.Text>Php { price } </Card.Text>
+		  	</Card.Body>
+		</Card>		
 
 	);
 	
