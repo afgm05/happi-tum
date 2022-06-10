@@ -24,7 +24,7 @@ export default function Cart() {
 		})
 		
 	}, [])
-	console.log(allOrders)
+	console.log(allOrders.length)
 
 	useEffect(() => {
 		const ordersArr = allOrders.map(order => {
@@ -36,13 +36,15 @@ export default function Cart() {
 		})
 		setOrdersDisplay(ordersArr);
 	}, [allOrders])
-			
+
+	
 									
 	return (
 		<>
-			
+				
 			{ordersDisplay}
+		
+		</>	
 			
-		</>
 	)
 }

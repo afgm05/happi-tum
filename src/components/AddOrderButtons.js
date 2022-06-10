@@ -61,14 +61,27 @@ export default function AddOrder() {
 	return(
 		<>
 			<ButtonGroup>
-			  <Button className="btn btn-primary" onClick={() => { 
-			  		if (count === 0) {
-			  			setCount(0);
-			  		} else if (count > 0) {
-			  			setCount(count - 1)}
-			  		}}> 
-			  	<span> - </span> 
-			  </Button>
+				{
+					count > 0 ?
+				  	<Button className="btn btn-primary" onClick={() => { 
+				  		if (count === 0) {
+				  			setCount(0);
+				  		} else if (count > 0) {
+				  			setCount(count - 1)}
+				  		}}> 
+				  		<span> - </span> 
+				  	</Button>
+				  	:
+				  	<Button className="btn btn-primary" onClick={() => { 
+				  		if (count === 0) {
+				  			setCount(0);
+				  		} else if (count > 0) {
+				  			setCount(count - 1)}
+				  		}} disabled> 
+				  		<span> - </span> 
+				  	</Button>
+
+				}
 			  <div>
 			   <span className="count">{count}</span>
 			  </div>
