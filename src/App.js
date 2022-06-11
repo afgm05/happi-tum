@@ -13,6 +13,7 @@ import ProductCatalogByStore from './pages/ProductCatalogByStore';
 import Product from './pages/ProductPage';
 import Cart from './pages/Cart';
 import History from './pages/History';
+import Admin from './pages/AdminDashboard';
 import ErrorPage from './pages/ErrorPage';
 
 
@@ -41,6 +42,7 @@ function App() {
               <Route path="/product" element={ <Product /> }/>
               <Route path="/cart" element={ <Cart /> }/>
               <Route path="/history" element={ <History /> }/>
+              <Route path="/admin" element={ <Admin /> }/>
               <Route path="*" element={ <ErrorPage /> } />
           </Routes>    
         </Container>      

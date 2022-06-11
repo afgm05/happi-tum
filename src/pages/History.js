@@ -27,14 +27,14 @@ export default function History() {
 
 			
 			return (
-				<tr>
+				<tr key={order._id}>
 					<td>{order._id}</td>
 					<td>{order.storeName}</td>	
 					<td>
 						{
 							order.products.map(item => {
 								return (
-										<tr>
+										<tr key={item._id}>
 										<td>{item.name}</td>
 										</tr>
 								)
@@ -56,7 +56,7 @@ export default function History() {
 						{
 							order.products.map(item => {
 								return (
-										<tr>
+										<tr key={item._id}>
 										<td>{"\u20B1"} {item.subtotal}</td>
 										</tr>
 								)
