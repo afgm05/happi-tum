@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
-export default function EditStore({ storeId, fetchData }){
+export default function AddStore({ storeId, fetchData }){
 
 	
 	const [ showEdit, setShowEdit ] = useState(false);
@@ -22,7 +22,6 @@ export default function EditStore({ storeId, fetchData }){
 			setAddress(data.address);
 		})
 
-		console.log(name)
 		setShowEdit(true)
 	}
 

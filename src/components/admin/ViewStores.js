@@ -1,6 +1,8 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import EditStore from './EditStore';
+import StoreStatus from './StoreStatus';
 
 
 export default function ViewStores() {
@@ -19,6 +21,8 @@ export default function ViewStores() {
 								
 
 
+
+
 	useEffect(() => {
 
 		const storesArr = allStores.map(store => {
@@ -32,17 +36,18 @@ export default function ViewStores() {
 					<td className={store.isActive ? "text-success" : "text-danger"}>
 						{store.isActive ? "Active" : "Inactive"}
 					</td>
-					<td><EditStore storeId={store._id} /></td>
-					<td></td>
-					<td></td>
+					<td>
+						<EditStore storeId={store._id} />
+						<StoreStatus storeId={store._id} isActive={store.isActive} />
+					</td>
 				</tr>
 				)
 		})
 
+
 		setDisplay(storesArr)
 
 	}, [allStores])
-
 
 	return(
 		<>
@@ -58,7 +63,7 @@ export default function ViewStores() {
 						<th>CATEGORY</th>
 						<th>ADDRESS</th>
 						<th>STATUS</th>
-						<th Colspan="3">ACTIONS</th>
+						<th>ACTIONS</th>
 					</tr>
 				</thead>
 
