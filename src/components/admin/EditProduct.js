@@ -4,22 +4,22 @@ import { Button, Modal, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { Navigate } from 'react-router-dom';
 
-export default function EditStore({ storeId }){
+export default function EditProduct({ prodId }){
 
 	
 	const [ showEdit, setShowEdit ] = useState(false);
 	const [name, setName] = useState('');
-	const [category, setCategory] = useState('');
-	const [address, setAddress] = useState('');
+	const [desc, setDesc] = useState('');
+	const [price, setPrice] = useState('');
 	
 	
-	const openEdit = (storeId) => {
-		fetch(`http://localhost:4000/stores/${storeId}/details`)
+	const openEdit = (prodId) => {
+		fetch(`http://localhost:4000/products/${prodId}`)
 		.then(res => res.json())
 		.then(data => {
-			setName(data.storeName);
-			setCategory(data.category);
-			setAddress(data.address);
+			setName(data.name);
+			setDesc(data.description);
+			setPrice(data.price);
 		})
 
 		setShowEdit(true)
@@ -32,16 +32,16 @@ export default function EditStore({ storeId }){
 	
 	const sendForm = (event) => {	
 
-		fetch(`http://localhost:4000/stores/${storeId}`, {
+		fetch(`http://localhost:4000/products/${prodId}`, {
 			method: "PUT",
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
 			},
 			body: JSON.stringify({
-				storeName: name,
-				category: category,
-				address: address
+				name: name,
+				description: desc,
+				price: price
 			})
 		})
 		.then((res) => res.text())
@@ -71,14 +71,12 @@ export default function EditStore({ storeId }){
 
 	return(
 		<>
-			<Button variant="primary" size="sm" onClick={() => openEdit(storeId)}>Update</Button>
-
-		{/*Edit Modal*/}
+			<Button variant="primary" size="sm" onClick={() => openEdit(prodId)}>Update</Button>
 
 			<Modal show={showEdit} onHide={closeEdit}>
 				<Form onSubmit={e => sendForm(e)}>
 					<Modal.Header closeButton>
-						<Modal.Title>Edit Store</Modal.Title>
+						<Modal.Title>Edit Product</Modal.Title>
 					</Modal.Header>
 
 					<Modal.Body>
@@ -94,22 +92,22 @@ export default function EditStore({ storeId }){
 						</Form.Group>
 
 						<Form.Group>
-							<Form.Label>Category</Form.Label>
+							<Form.Label>Description</Form.Label>
 							<Form.Control 
 							      	type="text"
 							      	required
-							      	value={category}
-							      	onChange={e => setCategory(e.target.value)}
+							      	value={desc}
+							      	onChange={e => setDesc(e.target.value)}
 							 />
 						</Form.Group>
 
 						<Form.Group>
-							<Form.Label>Address</Form.Label>
+							<Form.Label>Price</Form.Label>
 							<Form.Control 
-							      	type="text"
+							      	type="number"
 							      	required
-							      	value={address}
-							      	onChange={e => setAddress(e.target.value)}
+							      	value={price}
+							      	onChange={e => setPrice(e.target.value)}
 							 />
 						</Form.Group>
 

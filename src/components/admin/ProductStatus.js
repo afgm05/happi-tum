@@ -5,47 +5,46 @@ import Swal from 'sweetalert2';
 
 
 
-export default function StoreStatus(props) {
+export default function ProductStatus(props) {
 
-	let storeId = props.storeId;
+	let prodId = props.prodId;
 	let isActive = props.isActive;
 
 
-
-	const deactivateToggle = (storeId) => {
-		fetch(`http://localhost:4000/stores/${storeId}/deactivate`,{
+	const deactivateToggle = (prodId) => {
+		fetch(`http://localhost:4000/products/${prodId}/archive`,{
 			method: 'PUT',
 			headers: {
-				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
+				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
 			}
 		})
 		.then(res => res.json())
-		.then(data =>{
+		.then(data => {
 			if(data === true) {
 				Swal.fire({
 					title: 'success',
 					icon: 'success',
 					text: 'Store successfully disabled'
-				
-				}).then (res => window.location.reload())
-			
-				
-			}else {
+				})
+			} else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
 					text: 'Something went wrong'
-				}).then (res => window.location.reload())
-		
+				})
 			}
 		})
+
+		window.location.reload()
 	}
 
+
 	
-	const activateToggle = (storeId) => {
-		fetch(`http://localhost:4000/stores/${storeId}/activate`, {
+	const activateToggle = (prodId) => {
+		fetch(`http://localhost:4000/products/${prodId}/reactivate`, {
 			method: 'PUT',
 			headers: {
+				'Content-Type': 'application/json',
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
 			}
 		})
@@ -56,16 +55,17 @@ export default function StoreStatus(props) {
 					title: 'success',
 					icon: 'success',
 					text: 'Course successfully enabled'
-				}).then (res => window.location.reload())
-				
+				})
 			}else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
 					text: 'Something went wrong'
-				}).then (res => window.location.reload())
+				})
+				
 			}
 		})
+		window.location.reload()
 	}
 
 	return(
@@ -73,9 +73,9 @@ export default function StoreStatus(props) {
 		<>
 
 			{isActive  ?
-				<Button variant="danger" size="sm" onClick={() => deactivateToggle(storeId)}>Disable</Button>
+				<Button variant="danger" size="sm" onClick={() => deactivateToggle(prodId)}>Disable</Button>
 				:
-				<Button variant="success" size="sm" onClick={() => activateToggle(storeId)}>Enable</Button>
+				<Button variant="success" size="sm" onClick={() => activateToggle(prodId)}>Enable</Button>
 
 			}
 			

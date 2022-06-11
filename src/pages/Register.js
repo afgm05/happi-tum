@@ -75,9 +75,7 @@ export default function Register() {
 		setEmail('');
 		setPassword('');
 		setVerifyPassword('');
-
-
-		
+				
 	}
 
 

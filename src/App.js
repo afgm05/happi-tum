@@ -14,6 +14,7 @@ import Product from './pages/ProductPage';
 import Cart from './pages/Cart';
 import History from './pages/History';
 import Admin from './pages/AdminDashboard';
+import ViewStoreProducts from './components/admin/ViewStoreProducts';
 import ErrorPage from './pages/ErrorPage';
 
 
@@ -43,6 +44,7 @@ function App() {
               <Route path="/cart" element={ <Cart /> }/>
               <Route path="/history" element={ <History /> }/>
               <Route path="/admin" element={ <Admin /> }/>
+              <Route path="/store-products" element={ <ViewStoreProducts /> }/>
               <Route path="*" element={ <ErrorPage /> } />
           </Routes>    
         </Container>      

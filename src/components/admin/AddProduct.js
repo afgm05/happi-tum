@@ -3,15 +3,16 @@ import { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
-export default function AddStore(){
+export default function AddProduct(){
 
 	
 	const [ showAdd, setShowAdd ] = useState(false);
 	const [ name, setName ] = useState('');
-	const [ category, setCategory ] = useState('');
-	const [ address, setAddress ] = useState('');
+	const [ description, setDescription ] = useState('');
+	const [ price, setPrice ] = useState('');
 	const [ image, setImage ] = useState();
 
+	const storeId = sessionStorage.getItem('storeIdNeeded');
 	
 	const openAdd = () => {
 		setShowAdd(true)
@@ -26,19 +27,20 @@ export default function AddStore(){
 		setImage(event.target.files[0]);
 	}
 
-	const addStore = (event) => {
+	const addProduct = (event) => {
 		let formData = new FormData();
 		
-		formData.append("storeName", name);
-		formData.append("category", category);
-		formData.append("address", address);
-		formData.append("storeImage", image);
+		formData.append("name", name);
+		formData.append("description", description);
+		formData.append("price", price);
+		formData.append("image", image);
+		formData.append("storeId", storeId);
+
 		
-		sessionStorage.setItem('wa', formData)
-		fetch(`http://localhost:4000/stores/register`, {
+		fetch(`http://localhost:4000/products/create`, {
 			method: "POST",
 			headers: {
-					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
+				Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
 			},
 			body: formData,
 		})
@@ -50,7 +52,7 @@ export default function AddStore(){
 					icon: 'success',
 					text: 'Store Successfully Registered'
 				})
-			
+				
 				
 			} else if (resBody === "false"){
 				Swal.fire({
@@ -59,23 +61,25 @@ export default function AddStore(){
 					text: `Encountered an Error.`
 				})
 
+				
 			}
 		});
 		
+		closeAdd();
 	}	
 
-
+	console.log(storeId)
 	
 	return(
 		<>
-			<Button variant="primary" size="sm" onClick={() => openAdd()}>Add Store</Button>
+			<Button variant="primary" size="sm" onClick={() => openAdd()}>Add Product to the Store</Button>
 
 		{/*Edit Modal*/}
 
 			<Modal show={showAdd} onHide={closeAdd}>
-				<Form onSubmit={addStore}>
+				<Form onSubmit={addProduct}>
 					<Modal.Header closeButton>
-						<Modal.Title>Edit Store</Modal.Title>
+						<Modal.Title>Add Product</Modal.Title>
 					</Modal.Header>
 
 					<Modal.Body>
@@ -84,34 +88,31 @@ export default function AddStore(){
 							<Form.Label>Name</Form.Label>
 							<Form.Control 
 							      	type="text"
-							      	required
-							      	value={name}
+							      	required							   
 							     	onChange={e => setName(e.target.value)}
 								/>
 						</Form.Group>
 
 						<Form.Group>
-							<Form.Label>Category</Form.Label>
+							<Form.Label>Description</Form.Label>
 							<Form.Control 
 							      	type="text"
 							      	required
-							      	value={category}
-							      	onChange={e => setCategory(e.target.value)}
+							      	onChange={e => setDescription(e.target.value)}
 							 />
 						</Form.Group>
 
 						<Form.Group>
-							<Form.Label>Address</Form.Label>
+							<Form.Label>Price</Form.Label>
 							<Form.Control 
-							      	type="text"
+							      	type="number"
 							      	required
-							      	value={address}
-							      	onChange={e => setAddress(e.target.value)}
+							      	onChange={e => setPrice(e.target.value)}
 							 />
 						</Form.Group>
 
 						<Form.Group controlId="formFileSm" className="mb-3">
-						    <Form.Label>Store Image</Form.Label>
+						    <Form.Label>Product Image</Form.Label>
 						    <Form.Control
 						    		type="file" size="sm" 
 						    		onChange={fileOnChange}

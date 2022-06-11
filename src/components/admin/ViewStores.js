@@ -1,14 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
+import { Navigate, useNavigate} from 'react-router-dom';
 import EditStore from './EditStore';
 import StoreStatus from './StoreStatus';
+import AddStore from './AddStore';
 
 
 export default function ViewStores() {
 
 	const [ allStores, setAllStores ] = useState([]);
 	const [ display, setDisplay ] = useState([]);
+	let navigate = useNavigate();
 
 	useEffect(() => {
 		fetch('http://localhost:4000/stores/')
@@ -20,13 +23,18 @@ export default function ViewStores() {
 	}, [])
 								
 
-
-
+	function viewProducts(e, storeId) {
+		e.preventDefault();
+		navigate('/store-products');
+		sessionStorage.setItem('storeIdNeeded', storeId);
+	}
 
 	useEffect(() => {
 
 		const storesArr = allStores.map(store => {
-
+			const neededId2 = () => {
+				sessionStorage.setItem('storeIdNow', store._id);
+			}
 
 			return(
 				<tr key={store._id}>
@@ -36,9 +44,10 @@ export default function ViewStores() {
 					<td className={store.isActive ? "text-success" : "text-danger"}>
 						{store.isActive ? "Active" : "Inactive"}
 					</td>
-					<td>
+					<td onMouseOver={neededId2}>
 						<EditStore storeId={store._id} />
 						<StoreStatus storeId={store._id} isActive={store.isActive} />
+						<Button variant="warning" size="sm" onClick={e => viewProducts(e, store._id)}>View Menu</Button>
 					</td>
 				</tr>
 				)
@@ -55,7 +64,7 @@ export default function ViewStores() {
 				<h1>Admin Dashboard</h1>
 				
 			</div>
-			
+			<div><AddStore /></div>
 			<Table striped bordered hover responsive>
 				<thead className="bg-dark text-white">
 					<tr>
