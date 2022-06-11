@@ -24,7 +24,7 @@ export default function Cart() {
 		})
 		
 	}, [])
-	console.log(allOrders.length)
+	
 
 	useEffect(() => {
 		const ordersArr = allOrders.map(order => {

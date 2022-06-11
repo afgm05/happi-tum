@@ -20,6 +20,7 @@ export default function NavBar() {
 		                {(user.accessToken !== null) ?
 		                	<>
 			                	<Nav.Link as={Link} to="/cart">Cart</Nav.Link>
+			                	<Nav.Link as={Link} to="/history">History</Nav.Link>
 			                	<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
 			                </>
 		                	:

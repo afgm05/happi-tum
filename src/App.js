@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import ProductCatalogByStore from './pages/ProductCatalogByStore';
 import Product from './pages/ProductPage';
 import Cart from './pages/Cart';
+import History from './pages/History';
 import ErrorPage from './pages/ErrorPage';
 
 
@@ -39,6 +40,7 @@ function App() {
               <Route path="/catalog" element={ <ProductCatalogByStore /> }/>
               <Route path="/product" element={ <Product /> }/>
               <Route path="/cart" element={ <Cart /> }/>
+              <Route path="/history" element={ <History /> }/>
               <Route path="*" element={ <ErrorPage /> } />
           </Routes>    
         </Container>      

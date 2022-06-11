@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Card, Button, ButtonGroup, ListGroup, ListGroupItem, Row, Col } from 'react-bootstrap';
+import Checkout from './Checkout';
+import RemoveOrder from './RemoveOrder';
+
+
+
 
 export default function OrderCard({orderProp}) {
 
@@ -7,6 +12,8 @@ export default function OrderCard({orderProp}) {
 	const [ count, setCount ] = useState(0);
 	const [ amtDisplay, setAmtDisplay ] = useState(totalAmount);
 	
+	sessionStorage.setItem('orderId', _id);
+
 	function addToTotal(itemPrice) {
 		let total = amtDisplay + itemPrice;
 		setAmtDisplay(total);
@@ -26,6 +33,7 @@ export default function OrderCard({orderProp}) {
 		setCount(count + 1);
 		updateOrder();
 	};
+
 
 	const updateOrder = () => {
 
@@ -48,6 +56,8 @@ export default function OrderCard({orderProp}) {
 		})
 		.then(res => res.json())
 	}
+
+
 
 	return (
 		<Card style={{ width: '30rem' }}>
@@ -82,16 +92,21 @@ export default function OrderCard({orderProp}) {
 		  					incQty();
 		  					addToTotal(item.price);		  					
 		  				};
+
+		  				const neededId = () => {
+		  					sessionStorage.setItem('neededId', item.productId);
+		  					sessionStorage.setItem('storeId', storeId);
+		  				}
 		  				
 
 		  				return (
-		  					<ListGroupItem key={item._id}>
+		  					<ListGroupItem key={item._id} >
 		  						<Row>
 		  							<Col>
 				  						<Card.Img src={`data:image/png;base64,${base64String}`} />	
 		  							</Col>
-		  							<Col>
-				  						<Card.Text>{item.name}</Card.Text>					
+		  							<Col onMouseOver={neededId}>				
+				  						<Card.Text>{item.name}</Card.Text>
 				  						<Card.Text>Price: {item.price}</Card.Text>	
 				  						{
 				  							item.quantity > 1 ?
@@ -117,6 +132,9 @@ export default function OrderCard({orderProp}) {
 		  	</Card.Text>
 		  	<Card.Text>
 		  		totalAmount: Php {amtDisplay}
+		  	</Card.Text>
+		  	<Card.Text>
+		  		<Checkout /> <RemoveOrder />
 		  	</Card.Text>
 		</Card>	
 
