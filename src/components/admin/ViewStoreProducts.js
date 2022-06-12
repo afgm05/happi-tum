@@ -30,15 +30,9 @@ export default function ViewStoreProducts() {
 	}, [])
 
 
-	//exp
-
-	const count = storeProducts.length
-	//
-								
-	console.log(count)
 	useEffect(() => {
 
-		if (storeProducts ) {
+		if (storeProducts.length) {
 
 			const prodArr = storeProducts.map(item => {
 
@@ -60,7 +54,7 @@ export default function ViewStoreProducts() {
 			})
 
 			setDisplay(prodArr)
-			
+
 		} else {
 			
 			setDisplay(`There is no item in this store yet. Start adding them by clicking the "Add to Menu" Button`)
@@ -68,8 +62,7 @@ export default function ViewStoreProducts() {
 
 	}, [storeProducts])
 
-	console.log("this is ")
-	console.log(storeProducts)
+
 	return(
 		<>
 			<div className="text-center my-4">

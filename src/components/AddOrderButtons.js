@@ -11,6 +11,7 @@ export default function AddOrder() {
 	const navigate = useNavigate();
 	let isAdmin = localStorage.getItem("isAdmin");
 	let storeId = sessionStorage.getItem('storeId')
+	
 	const addOrder = () => {
 
 		if (isAdmin === "true" ) {
@@ -43,8 +44,14 @@ export default function AddOrder() {
 							title: 'Success',
 							icon: 'success',
 							text: 'Order added to Cart'
-						})
+						}).then(result => {
 
+							if(result.isConfirmed) {
+
+								navigate(-1)
+							}
+						})
+						
 					} else {
 						Swal.fire({
 							title: 'error',

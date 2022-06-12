@@ -32,7 +32,7 @@ export default function ViewStores() {
 
 	useEffect(() => {
 
-		if (allStores ) {
+		if (allStores.length ) {
 
 			const storesArr = allStores.map(store => {
 				const neededId2 = () => {
@@ -65,6 +65,8 @@ export default function ViewStores() {
 		}
 
 	}, [allStores])
+
+	
 
 	return(
 		<>

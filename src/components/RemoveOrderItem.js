@@ -3,13 +3,9 @@ import Swal from 'sweetalert2';
 
 
 
-export default function RemoveOrderItem() {
+export default function RemoveOrderItem(props) {
 	
-
-	
-	let orderId = sessionStorage.getItem('orderId');
-	let productId = sessionStorage.getItem('neededId');
-	
+	const { orderId, productId } = props;	
 
 	const removeOrderItem = () => {
 
@@ -41,7 +37,9 @@ export default function RemoveOrderItem() {
 				
 	}
 
-
+	console.log(orderId)
+	console.log("product")
+	console.log(productId)
 						
 	return(
 		<>

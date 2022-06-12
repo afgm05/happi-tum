@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, Button, ButtonGroup, ListGroup, ListGroupItem, Row, Col } from 'react-bootstrap';
 import Checkout from './Checkout';
 import RemoveOrder from './RemoveOrder';
+import RemoveOrderItem from './RemoveOrderItem';
 
 
 
@@ -105,7 +106,8 @@ export default function OrderCard({orderProp}) {
 		  							<Col>
 				  						<Card.Img src={`data:image/png;base64,${base64String}`} />	
 		  							</Col>
-		  							<Col onMouseOver={neededId}>				
+		  							<Col onMouseOver={neededId}>
+		  								<RemoveOrderItem orderId={_id} productId={item.productId} />				
 				  						<Card.Text>{item.name}</Card.Text>
 				  						<Card.Text>Price: {item.price}</Card.Text>	
 				  						{
