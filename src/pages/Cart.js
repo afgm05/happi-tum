@@ -40,10 +40,16 @@ export default function Cart() {
 	
 									
 	return (
-		<>
+		<>	
+			{	
+				allOrders.length ?
 				
-			{ordersDisplay}
-		
+				<div>{ordersDisplay}</div>
+
+				:
+				
+				<p>You have no active order.</p>				
+			}
 		</>	
 			
 	)

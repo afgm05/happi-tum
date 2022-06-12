@@ -22,7 +22,7 @@ export default function ActiveStores() {
 			if (store.isActive === true) {
 				return (	
 					<Col key={store._id}>				
-					<StoreCard storeProp={store}/>
+					<StoreCard storeProp={store} class='card'/>
 					</Col>
 				);
 			} else {

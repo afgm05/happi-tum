@@ -75,29 +75,42 @@ export default function History() {
 
 
 	return(
-		<>
+		<> 
+
 			<div className="text-center my-4">
 				<h1>Order History</h1>
-			
 			</div>
 			
-			<Table striped bordered hover responsive>
-				<thead className="bg-dark text-white">
-					<tr>
-						<th>Order Id</th>
-						<th>Store Name</th>
-						<th>Product</th>
-						<th>Quantity</th>
-						<th>Subtotal</th>
-						<th>TotalAmount</th>
-						<th>Purchased On</th>
-					</tr>
-				</thead>
+				
 
-				<tbody>
-					{display}
-				</tbody>
-			</Table>
+				<Table striped bordered hover responsive>
+					<thead className="bg-dark text-white">
+						<tr>
+							<th>Order Id</th>
+							<th>Store Name</th>
+							<th>Product</th>
+							<th>Quantity</th>
+							<th>Subtotal</th>
+							<th>TotalAmount</th>
+							<th>Purchased On</th>
+						</tr>
+					</thead>
+						{
+							history.length ?
+		
+							<tbody>
+								{display}
+							</tbody>
+
+							:
+							<p>You have not made any purchase yet.</p>
+						}
+
+				</Table>
+
+
+			
+
 		</>
 
 		)

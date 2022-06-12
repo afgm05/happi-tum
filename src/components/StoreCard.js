@@ -27,7 +27,7 @@ export default function StoreCard({storeProp}) {
 	
 	return (		
 
-		<Card style={{ width: '15rem', cursor: 'pointer'}} onClick={() => handleClick()}>
+		<Card style={{ width: '15rem', cursor: 'pointer'}} onClick={() => handleClick()} Class='h-100 border border-dark justify-content-center'>
 		  <Card.Img variant="top" src={`data:image/png;base64,${base64String}`} />
 		  <Card.Body>
 		    <Card.Title> { storeName } </Card.Title>

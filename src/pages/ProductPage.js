@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import AddOrderButtons from '../components/AddOrderButtons';
 import AddOrder from '../components/AddOrderButtons';
-import classes from './ProductPage.module.css';
+
 
 
 
@@ -27,8 +27,8 @@ export default function Product() {
 	
 	return (
 
-	    <Card style={{ width: '18rem' }} className={classes.item}>
-	     	<Row className={classes.row}>
+	    <Card style={{ width: '18rem' }}>
+	     	<Row>
 	     	<Col>
 	       	<Card.Img variant="top" src={`data:image/png;base64,${base64String}`} />
 	       	</Col>
