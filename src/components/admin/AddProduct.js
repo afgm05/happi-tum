@@ -28,6 +28,7 @@ export default function AddProduct(){
 	}
 
 	const addProduct = (event) => {
+		event.preventDefault();
 		let formData = new FormData();
 		
 		formData.append("name", name);
@@ -44,40 +45,34 @@ export default function AddProduct(){
 			},
 			body: formData,
 		})
-		.then((res) => res.text())
-		.then((resBody) => {
-			if(resBody === 'true') {
-				Swal.fire({
-					title: 'Success',
-					icon: 'success',
-					text: 'Store Successfully Registered'
-				})
-				
-				
-			} else if (resBody === "false"){
-				Swal.fire({
-					title: 'error',
-					icon: 'error',
-					text: `Encountered an Error.`
-				})
+		.then(closeAdd())
+		.then(	
+			Swal.fire({
+				title: 'Success',
+				text: 'Item Successfully added',
+				icon: 'success',
+				confirmButtonColor: '#3085d6',
+		  		confirmButtonText: 'Ok'
+			}).then(result => {
+				if(result.isConfirmed) {
 
-				
-			}
-		});
-		
-		closeAdd();
-	}	
+					window.location.reload()
+				}
+			})
+
+		)			
+	}
 
 	console.log(storeId)
 	
 	return(
 		<>
-			<Button variant="primary" size="sm" onClick={() => openAdd()}>Add Product to the Store</Button>
+			<Button variant="primary" size="sm" onClick={() => openAdd()}>Add to Menu</Button>
 
 		{/*Edit Modal*/}
 
 			<Modal show={showAdd} onHide={closeAdd}>
-				<Form onSubmit={addProduct}>
+				<Form onSubmit={e => addProduct(e)}>
 					<Modal.Header closeButton>
 						<Modal.Title>Add Product</Modal.Title>
 					</Modal.Header>

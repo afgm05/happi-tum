@@ -32,31 +32,37 @@ export default function ViewStores() {
 
 	useEffect(() => {
 
-		const storesArr = allStores.map(store => {
-			const neededId2 = () => {
-				sessionStorage.setItem('storeIdNow', store._id);
-			}
+		if (allStores ) {
 
-			return(
-				<tr key={store._id}>
-					<td>{store.storeName}</td>
-					<td>{store.category}</td>
-					<td>{store.address}</td>
-					<td className={store.isActive ? "text-success" : "text-danger"}>
-						{store.isActive ? "Active" : "Inactive"}
-					</td>
-					<td onMouseOver={neededId2}>
-						<EditStore storeId={store._id} />
-						<StoreStatus storeId={store._id} isActive={store.isActive} />
-						<Button variant="warning" size="sm" onClick={e => viewProducts(e, store._id)}>View Menu</Button>
-						<DeleteStore storeId={store._id} />
-					</td>
-				</tr>
-				)
-		})
+			const storesArr = allStores.map(store => {
+				const neededId2 = () => {
+					sessionStorage.setItem('storeIdNow', store._id);
+				}
 
+				return(
+					<tr key={store._id}>
+						<td>{store.storeName}</td>
+						<td>{store.category}</td>
+						<td>{store.address}</td>
+						<td className={store.isActive ? "text-success" : "text-danger"}>
+							{store.isActive ? "Active" : "Inactive"}
+						</td>
+						<td onMouseOver={neededId2}>
+							<EditStore storeId={store._id} />
+							<StoreStatus storeId={store._id} isActive={store.isActive} />
+							<Button variant="warning" size="sm" onClick={e => viewProducts(e, store._id)}>View Menu</Button>
+							<DeleteStore storeId={store._id} />
+						</td>
+					</tr>
+					)
+			})
 
-		setDisplay(storesArr)
+			setDisplay(storesArr)
+			
+		} else {
+
+			setDisplay(`There is no registered store yet. Start adding them by clicking the "Add Store" Button`)
+		}
 
 	}, [allStores])
 

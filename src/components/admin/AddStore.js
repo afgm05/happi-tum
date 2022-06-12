@@ -27,6 +27,7 @@ export default function AddStore(){
 	}
 
 	const addStore = (event) => {
+		event.preventDefault();
 		let formData = new FormData();
 		
 		formData.append("storeName", name);
@@ -42,26 +43,22 @@ export default function AddStore(){
 			},
 			body: formData,
 		})
-		.then((res) => res.text())
-		.then((resBody) => {
-			if(resBody === 'true') {
-				Swal.fire({
-					title: 'Success',
-					icon: 'success',
-					text: 'Store Successfully Registered'
-				})
-			
-				
-			} else if (resBody === "false"){
-				Swal.fire({
-					title: 'error',
-					icon: 'error',
-					text: `Encountered an Error.`
-				})
+		.then(closeAdd())
+		.then(	
+			Swal.fire({
+				title: 'Success',
+				text: 'Store Successfully Registered',
+				icon: 'success',
+				confirmButtonColor: '#3085d6',
+		  		confirmButtonText: 'Ok'
+			}).then(result => {
+				if(result.isConfirmed) {
 
-			}
-		});
-		
+					window.location.reload()
+				}
+			})
+
+		)		
 	}	
 
 

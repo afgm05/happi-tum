@@ -11,10 +11,15 @@ import DeleteProduct from './DeleteProduct';
 
 export default function ViewStoreProducts() {
 
+
 	const [ storeProducts, setStoreProducts ] = useState([]);
 	const [ display, setDisplay ] = useState([]);
+	const [ emptyDisplay, setEmptyDisplay ] = useState();
 
 	const storeId = sessionStorage.getItem('storeIdNeeded');
+
+
+
 
 	useEffect(() => {
 		fetch(`http://localhost:4000/stores/${storeId}/products`)
@@ -23,34 +28,48 @@ export default function ViewStoreProducts() {
 			setStoreProducts(data)
 		})		
 	}, [])
+
+
+	//exp
+
+	const count = storeProducts.length
+	//
 								
-	console.log(storeId)
+	console.log(count)
 	useEffect(() => {
 
-		const prodArr = storeProducts.map(item => {
+		if (storeProducts ) {
 
-			return(
-				<tr key={item._id}>
-					<td>{item.name}</td>
-					<td>{item.description}</td>
-					<td>{"\u20B1"} {item.price}</td>
-					<td className={item.isActive ? "text-success" : "text-danger"}>
-						{item.isActive ? "Active" : "Inactive"}
-					</td>
-					<td>
-						<EditProduct prodId={item._id} />
-						<ProductStatus prodId={item._id} isActive={item.isActive} />
-						<DeleteProduct prodId={item._id} />
-					</td>
-				</tr>
-				)
-		})
+			const prodArr = storeProducts.map(item => {
 
+				return(
+					<tr key={item._id}>
+						<td>{item.name}</td>
+						<td>{item.description}</td>
+						<td>{"\u20B1"} {item.price}</td>
+						<td className={item.isActive ? "text-success" : "text-danger"}>
+							{item.isActive ? "Active" : "Inactive"}
+						</td>
+						<td>
+							<EditProduct prodId={item._id} />
+							<ProductStatus prodId={item._id} isActive={item.isActive} />
+							<DeleteProduct prodId={item._id} />
+						</td>
+					</tr>
+					)
+			})
 
-		setDisplay(prodArr)
+			setDisplay(prodArr)
+			
+		} else {
+			
+			setDisplay(`There is no item in this store yet. Start adding them by clicking the "Add to Menu" Button`)
+		}
 
 	}, [storeProducts])
 
+	console.log("this is ")
+	console.log(storeProducts)
 	return(
 		<>
 			<div className="text-center my-4">
