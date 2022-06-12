@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import EditProduct from './EditProduct';
 import ProductStatus from './ProductStatus';
 import AddProduct from './AddProduct';
+import DeleteProduct from './DeleteProduct';
 
 
 
@@ -39,6 +40,7 @@ export default function ViewStoreProducts() {
 					<td>
 						<EditProduct prodId={item._id} />
 						<ProductStatus prodId={item._id} isActive={item.isActive} />
+						<DeleteProduct prodId={item._id} />
 					</td>
 				</tr>
 				)

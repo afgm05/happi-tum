@@ -5,6 +5,7 @@ import { Navigate, useNavigate} from 'react-router-dom';
 import EditStore from './EditStore';
 import StoreStatus from './StoreStatus';
 import AddStore from './AddStore';
+import DeleteStore from './DeleteStore';
 
 
 export default function ViewStores() {
@@ -48,6 +49,7 @@ export default function ViewStores() {
 						<EditStore storeId={store._id} />
 						<StoreStatus storeId={store._id} isActive={store.isActive} />
 						<Button variant="warning" size="sm" onClick={e => viewProducts(e, store._id)}>View Menu</Button>
+						<DeleteStore storeId={store._id} />
 					</td>
 				</tr>
 				)

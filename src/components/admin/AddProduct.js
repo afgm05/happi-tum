@@ -33,10 +33,10 @@ export default function AddProduct(){
 		formData.append("name", name);
 		formData.append("description", description);
 		formData.append("price", price);
-		formData.append("image", image);
+		formData.append("productImage", image);
 		formData.append("storeId", storeId);
 
-		
+
 		fetch(`http://localhost:4000/products/create`, {
 			method: "POST",
 			headers: {
