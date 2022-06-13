@@ -26,7 +26,7 @@ export default function Checkout() {
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
-					text: 'Order added to Cart'
+					text: `Order Checked-out! Wait for the delivery.`
 				}).then(() => window.location.reload(false))	
 			} else {
 				Swal.fire({
@@ -48,7 +48,7 @@ export default function Checkout() {
 		<>
 			<div>
 				{ 
-					<Button type="submit" onClick={checkOut}>Checkout</Button>
+					<Button type="submit" variant="success" className="checkoutbtn" onClick={checkOut}>Checkout</Button>
 				}
 			</div>      
 			

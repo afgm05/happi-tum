@@ -35,6 +35,13 @@ body {
   display: flex;
 }
 
+.checkoutbtn {
+  border-radius: 0 !important;
+}
+
+.empty {
+  width: 400px;
+}
 
 .font-link {
   font-family: 'Cabin', sans-serif;
@@ -77,6 +84,36 @@ body {
   font-family: 'Cabin', sans-serif;
 }
 
+.itemName {
+  font-weight: bold;
+}
+
+.itemqty {
+  display: inline-block;
+  width: 35px;
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+}
+
+.material-symbols-outlined:hover {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 100,
+  'GRAD' 200,
+  'opsz' 48
+}
+
+.minus {
+  border-radius: 0 !important;
+}
+
 .modalbutton {
  align: center !important;
 }
@@ -89,6 +126,30 @@ body {
   font-weight: bold;
 }
 
+.ordercard {
+  width: 80vw;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 23px;
+}
+
+.ordercardimg {
+  width: 200px !important;
+}
+
+.orderItem {
+  font-size: 18px;
+}
+
+.orderQtyBtn {
+ display: inline-block;
+ border: solid;
+ border-width: thin;
+}
+
+.plus {
+  border-radius: 0 !important;
+}
 
 .storerow {
   padding-top: 150px;
@@ -102,6 +163,12 @@ body {
 
 .tablecolumn {
   width: 400px;
+}
+
+.x-order {
+  background-color: white;
+  border: none;
+  font-size: ;
 }
 
 

@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 
 import OrderCard from '../components/OrderCard';
+import EmptyCart from '../components/EmptyCart';
 
 
 
@@ -41,10 +42,18 @@ export default function Cart() {
 									
 	return (
 		<>	
-				
-				
-				{ordersDisplay}					
-			
+			{
+				allOrders.length ?
+				<div>
+					<h2 className="text-center mb-4">Your Orders</h2>
+					{ordersDisplay}	
+				</div>
+				:
+				<div>
+					<EmptyCart /> 
+					<p className="text-center fs-4">You have no active order</p>
+				</div>
+			}
 		</>	
 			
 	)

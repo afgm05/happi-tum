@@ -24,7 +24,6 @@ export default function RemoveOrderItem(props) {
 		.then(data => {
 			if (data) {
 				window.location.reload(false)
-				console.log(data)
 			} else {
 				Swal.fire({
 					title: 'error',
@@ -37,15 +36,12 @@ export default function RemoveOrderItem(props) {
 				
 	}
 
-	console.log(orderId)
-	console.log("product")
-	console.log(productId)
 						
 	return(
 		<>
 			<div>
 				{ 
-					<Button type="submit" onClick={removeOrderItem}> x </Button>
+					<Button className="x-order" size="sm" type="submit" variant="danger" onClick={removeOrderItem}>Remove</Button>
 				}
 			</div>      
 			

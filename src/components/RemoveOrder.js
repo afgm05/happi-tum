@@ -43,7 +43,7 @@ export default function RemoveOrder() {
 		<>
 			<div>
 				{ 
-					<Button type="submit" onClick={removeOrder}>Remove</Button>
+					<Button type="submit" variant="danger" className="checkoutbtn" onClick={removeOrder}>Remove</Button>
 				}
 			</div>      
 			
