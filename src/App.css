@@ -35,6 +35,18 @@ body {
   display: flex;
 }
 
+
+
+.catalogItem {
+
+}
+
+.catalogplus {
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
 .checkoutbtn {
   border-radius: 0 !important;
 }
@@ -60,6 +72,10 @@ body {
 .formgroup2 {
   font-size: 18px;
   padding-top: 5px !important;
+}
+
+.ft {
+  background-color: #FFDAB9;
 }
 
 .greet1 {
@@ -151,6 +167,12 @@ body {
   border-radius: 0 !important;
 }
 
+.prodCatalogImg {
+  width: 255px !important;
+  height: 150px;
+
+}
+
 .storerow {
   padding-top: 150px;
 }
@@ -165,37 +187,44 @@ body {
   width: 400px;
 }
 
+.x {
+  font-weight: bolder;
+  width: 14px;
+}
+
 .x-order {
-  background-color: white;
-  border: none;
-  font-size: ;
+
+  border-radius: 50% !important;
 }
 
 
-/*before*/
-#restaurants {
-  background-color: pink;
-}
-
-
-
-#product {
-
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-.count {
+.animate-charcter
+{
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 4s linear infinite;
   display: inline-block;
-  width: 50px;
-  text-align: center;
+  font-size: 50px;
+  
 }
 
-.storeCard {
-  color:  red;
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
 }
 
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -21,17 +21,19 @@ export default function ProductCard({productProp}) {
 		navigate('/product');
 	}
 
-	return (		
-
-		<Card style={{ width: '18rem', cursor: 'pointer' }} onClick={() => handleClick()}>
-		 	<Card.Img variant="top" src={`data:image/png;base64,${base64String}`} />
-		  	<Card.Body>
-			    <Card.Title> { name } </Card.Title>
-			    <Card.Text> { description } </Card.Text>
-			    <Card.Text>Php { price } </Card.Text>
+	return (			
+		<Card className="catalogItem h-100 shadow ms-auto me-auto" style={{ width: '16rem', cursor: 'pointer' }} onClick={() => handleClick()}>
+		 	<Card.Img className="prodCatalogImg" variant="top" src={`data:image/png;base64,${base64String}`} />
+		  	<Card.Body className="p-2">
+		  		<Row>
+				  	<Col xs={6}>
+					    <Card.Text className="py-0 my-0"> { name } </Card.Text>
+					    <Card.Text>{"\u20B1"} { price } </Card.Text>  		
+				  	</Col>
+				  	<Col xs={6} className="text-end my-auto"><Button size="sm" ><span className="catalogplus">+</span></Button></Col>
+			  	</Row>
 		  	</Card.Body>
-		</Card>		
-
+		</Card>
 	);
 	
 }

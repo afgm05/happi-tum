@@ -20,7 +20,8 @@ export default function StoreCard({storeProp}) {
 
 	
 	function handleClick() {
-		sessionStorage.setItem('storeId', _id)
+		sessionStorage.setItem('storeId', _id);
+		sessionStorage.setItem('restoName', storeName);
 		navigate('/catalog');
 	}
 

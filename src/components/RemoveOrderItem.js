@@ -41,7 +41,7 @@ export default function RemoveOrderItem(props) {
 		<>
 			<div>
 				{ 
-					<Button className="x-order" size="sm" type="submit" variant="danger" onClick={removeOrderItem}>Remove</Button>
+					<Button className="x-order" size="sm" type="submit" variant="danger" onClick={removeOrderItem}><div className="x"> X </div></Button>
 				}
 			</div>      
 			
