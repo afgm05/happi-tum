@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form, Row, Col} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import { Navigate } from 'react-router-dom';
 
@@ -71,7 +71,7 @@ export default function EditStore({ storeId }){
 
 	return(
 		<>
-			<Button variant="primary" size="sm" onClick={() => openEdit(storeId)}>Update</Button>
+			<Button variant="primary" className="btngrp" size="sm" onClick={() => openEdit(storeId)}>Update</Button>
 
 		{/*Edit Modal*/}
 
@@ -116,8 +116,10 @@ export default function EditStore({ storeId }){
 					</Modal.Body>
 
 					<Modal.Footer>
-						<Button variant="secondary" onClick={closeEdit}>Close</Button>
-						<Button variant="success" type="submit">Submit</Button>
+						
+							<Button className="modalbutton" variant="secondary" onClick={closeEdit}>Close</Button>
+							<Button variant="success" type="submit">Submit</Button>
+				
 					</Modal.Footer>
 
 				</Form>

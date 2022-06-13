@@ -1,16 +1,116 @@
-* {
-  margin:  0;
-  padding:  0;
-  box-sizing:  border-box;
+body {
+  margin: 0;
+  background-color: #fcf3f6;
+}
+
+.addbtn {
+  width: 300px;
+  height: 40px;
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px !important;
 }
 
 
+.btngrp {
+  border-radius: 0 !important;
+}
+
+.button {
+  background-color: orange !important;
+  border: none !important;
+}
+
+.button:hover {
+  background-color:  blue !important;
+  cursor:  pointer !important;
+  display: inline-block !important;
+  margin: auto;
+}
+
+.card {
+  
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+  display: flex;
+}
+
+
+.font-link {
+  font-family: 'Cabin', sans-serif;
+}
+
+.form {
+    font-family: 'Cabin', sans-serif;
+    padding-top: 50px;
+}
+
+.formgroup {
+  font-size: 24px;
+  padding-top: 10px !important;
+}
+
+.formgroup2 {
+  font-size: 18px;
+  padding-top: 5px !important;
+}
+
+.greet1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin:  0px;
+  font-family: 'Cabin', sans-serif;
+}
+
+.greet2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin:  0px;
+  color: orange;
+  font-family: 'Cabin', sans-serif;
+}
+
+.greet3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin:  0px;
+  font-family: 'Cabin', sans-serif;
+}
+
+.modalbutton {
+ align: center !important;
+}
+
+.navlink{
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  font-size: 18px;
+  font-family: 'Cabin', sans-serif;
+  font-weight: bold;
+}
+
+
+.storerow {
+  padding-top: 150px;
+}
+
+.storetable {
+  width: 90vw !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tablecolumn {
+  width: 400px;
+}
+
+
+/*before*/
 #restaurants {
   background-color: pink;
 }
 
-/*Pages*/
-/*ProductDetails.js*/
+
 
 #product {
 
@@ -20,9 +120,7 @@
 }
 
 
-/*Components*/
 
-/*AddOrder.js*/
 .count {
   display: inline-block;
   width: 50px;
@@ -32,3 +130,5 @@
 .storeCard {
   color:  red;
 }
+
+

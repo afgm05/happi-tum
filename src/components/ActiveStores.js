@@ -34,7 +34,7 @@ export default function ActiveStores() {
 	
 	return (
 		<>
-			<h2>Active stores</h2>		
+					
 			<Row>	
 			{activeStores}
 			</Row>

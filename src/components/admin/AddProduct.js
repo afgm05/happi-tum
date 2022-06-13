@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form, Col, Row } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 export default function AddProduct(){
@@ -67,8 +67,9 @@ export default function AddProduct(){
 	
 	return(
 		<>
-			<Button variant="primary" size="sm" onClick={() => openAdd()}>Add to Menu</Button>
-
+			<Col className="d-flex justify-content-center" >
+				<Button variant="primary" className="addbtn mt-2 mb-3" size="sm" onClick={() => openAdd()}>Add to Menu</Button>
+			</Col>
 		{/*Edit Modal*/}
 
 			<Modal show={showAdd} onHide={closeAdd}>

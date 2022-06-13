@@ -20,24 +20,32 @@ export default function ProductCatalogByStore() {
 	}, [])
 
 	useEffect(() => {
-		const storeProductsArr = storeProducts.map(product => {
-			if (product.isActive === true) {
-				return (					
-					<Col key={product._id}>				
-					<ProductCard productProp={product}/>
-					</Col>
-				);
-			} else {
-				return null;
-			}
-		})
-		setActiveProducts(storeProductsArr);
+
+		if (storeProducts.length) {
+
+			const storeProductsArr = storeProducts.map(product => {
+				if (product.isActive === true) {
+					return (					
+						<Col key={product._id}>				
+						<ProductCard productProp={product}/>
+						</Col>
+					);
+				} else {
+					return null;
+				}
+			})
+			setActiveProducts(storeProductsArr);
+
+		} else {
+
+			setActiveProducts(`Sorry! There is no item on the menu yet.`)
+		}
+
 	}, [storeProducts])	
 
 	return (
 		<>
-			<h1>Food and Beverages</h1>			
-			{ActiveProducts}			
+			{ActiveProducts}	
 		</>
 	);
 }

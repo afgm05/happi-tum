@@ -61,7 +61,7 @@ export default function DeleteStore(prop) {
 		<>
 			<div>
 				{ 
-					<Button type="submit" onClick={deleteStore}>Remove</Button>
+					<Button type="submit" variant="danger" size="sm" className="btngrp" onClick={deleteStore}>Remove</Button>
 				}
 			</div>      
 			

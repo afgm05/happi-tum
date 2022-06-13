@@ -21,22 +21,20 @@ export default function History() {
 		
 	}, [])
 
-	console.log(history)
 	useEffect(() => {
 		const historyArr = history.map(order => {
-
-			
+	
 			return (
-				<tr key={order._id}>
-					<td>{order._id}</td>
-					<td>{order.storeName}</td>	
+				<tr key={order._id} className="text-start align-middle">
+					<td ps-3>{order._id}</td>
+					<td className="ps-3">{order.storeName}</td>	
 					<td>
 						{
 							order.products.map(item => {
 								return (
-										<tr key={item._id}>
-										<td>{item.name}</td>
-										</tr>
+										
+										<tr className="d-flex justify-content-start ps-3">{item.name}</tr>
+										
 								)
 							})
 						}
@@ -45,25 +43,24 @@ export default function History() {
 						{
 							order.products.map(item => {
 								return (
-										<tr>
-										<td>{item.quantity}</td>
-										</tr>
+										
+										<tr className="d-flex justify-content-center ps-3">{item.quantity}</tr>
+										
 								)
 							})
 						}
 					</td>
-					<td>
+					<td>	
 						{
 							order.products.map(item => {
 								return (
-										<tr key={item._id}>
-										<td>{"\u20B1"} {item.subtotal}</td>
-										</tr>
+									
+										<tr className="d-flex justify-content-center ps-3">{"\u20B1"} {item.subtotal}</tr>
 								)
 							})
 						}
 					</td>
-					<td>{"\u20B1"} {order.totalAmount}</td>					
+					<td className="text-center">{"\u20B1"} {order.totalAmount}</td>					
 					<td>{order.purchasedOn}</td>
 				</tr>
 			)
@@ -76,16 +73,13 @@ export default function History() {
 
 	return(
 		<> 
-
+		{	
+			history.length ?
 			<div className="text-center my-4">
-				<h1>Order History</h1>
-			</div>
-			
-				
-
-				<Table striped bordered hover responsive>
+				<h1 className="font-link pb-3">Order History</h1>
+				<Table striped bordered hover responsive className="font-link storetable">
 					<thead className="bg-dark text-white">
-						<tr>
+						<tr className="text-center">
 							<th>Order Id</th>
 							<th>Store Name</th>
 							<th>Product</th>
@@ -95,22 +89,19 @@ export default function History() {
 							<th>Purchased On</th>
 						</tr>
 					</thead>
-						{
-							history.length ?
-		
-							<tbody>
-								{display}
-							</tbody>
-
-							:
-							<p>You have not made any purchase yet.</p>
-						}
-
+						<tbody>
+							{display}
+						</tbody>
 				</Table>
+			</div>
+			:
+			<div>
+				<p className="my-5 py-5 text-center fs-4">You have not made any purchase yet.</p>
+			</div>
 
 
-			
-
+		
+		}
 		</>
 
 		)

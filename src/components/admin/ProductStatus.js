@@ -73,7 +73,7 @@ export default function ProductStatus(props) {
 		<>
 
 			{isActive  ?
-				<Button variant="danger" size="sm" onClick={() => deactivateToggle(prodId)}>Disable</Button>
+				<Button variant="secondary" size="sm" onClick={() => deactivateToggle(prodId)}>Disable</Button>
 				:
 				<Button variant="success" size="sm" onClick={() => activateToggle(prodId)}>Enable</Button>
 

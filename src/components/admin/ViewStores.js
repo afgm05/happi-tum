@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, ButtonGroup } from 'react-bootstrap';
 import { Navigate, useNavigate} from 'react-router-dom';
 import EditStore from './EditStore';
 import StoreStatus from './StoreStatus';
@@ -12,6 +12,7 @@ export default function ViewStores() {
 
 	const [ allStores, setAllStores ] = useState([]);
 	const [ display, setDisplay ] = useState([]);
+	const message = `There is no product in this store yet. Start adding them by clicking the "Add to Menu" Button`;
 	let navigate = useNavigate();
 
 	useEffect(() => {
@@ -24,10 +25,11 @@ export default function ViewStores() {
 	}, [])
 								
 
-	function viewProducts(e, storeId) {
+	function viewProducts(e, storeId, storeName) {
 		e.preventDefault();
 		navigate('/store-products');
 		sessionStorage.setItem('storeIdNeeded', storeId);
+		sessionStorage.setItem('storeName', storeName);
 	}
 
 	useEffect(() => {
@@ -35,23 +37,24 @@ export default function ViewStores() {
 		if (allStores.length ) {
 
 			const storesArr = allStores.map(store => {
-				const neededId2 = () => {
-					sessionStorage.setItem('storeIdNow', store._id);
-				}
+		
+
 
 				return(
-					<tr key={store._id}>
-						<td>{store.storeName}</td>
-						<td>{store.category}</td>
-						<td>{store.address}</td>
+					<tr key={store._id} className="text-center">
+						<td className="text-start px-4">{store.storeName}</td>
+						<td className="text-start px-4">{store.category}</td>
+						<td className="text-start px-4">{store.address}</td>
 						<td className={store.isActive ? "text-success" : "text-danger"}>
 							{store.isActive ? "Active" : "Inactive"}
 						</td>
-						<td onMouseOver={neededId2}>
-							<EditStore storeId={store._id} />
-							<StoreStatus storeId={store._id} isActive={store.isActive} />
-							<Button variant="warning" size="sm" onClick={e => viewProducts(e, store._id)}>View Menu</Button>
-							<DeleteStore storeId={store._id} />
+						<td className="d-inline-flex justify-content-start" className="tablecolumn">
+							<ButtonGroup>
+								<EditStore storeId={store._id} />
+								<StoreStatus storeId={store._id} isActive={store.isActive} />
+								<DeleteStore storeId={store._id} />
+								<Button variant="warning" size="sm" className="btngrp" onClick={e => viewProducts(e, store._id, store.storeName)}>View Products</Button>
+							</ButtonGroup>
 						</td>
 					</tr>
 					)
@@ -59,10 +62,7 @@ export default function ViewStores() {
 
 			setDisplay(storesArr)
 			
-		} else {
-
-			setDisplay(`There is no registered store yet. Start adding them by clicking the "Add Store" Button`)
-		}
+		} 
 
 	}, [allStores])
 
@@ -70,27 +70,39 @@ export default function ViewStores() {
 
 	return(
 		<>
-			<div className="text-center my-4">
-				<h1>Admin Dashboard</h1>
-				
+		{
+			allStores.length?
+			<div>
+				<div className="text-center my-2">
+					<h2 className="font-link">Admin Store Dashboard</h2>
+				</div>
+				<div><AddStore /></div>
+				<Table striped bordered hover responsive className="font-link storetable"> 
+					<thead className="bg-dark text-white">
+						<tr className="text-center">
+							<th>STORE</th>
+							<th>CATEGORY</th>
+							<th>ADDRESS</th>
+							<th>STATUS</th>
+							<th>ACTIONS</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						{display}
+					</tbody>
+				</Table>
 			</div>
-			<div><AddStore /></div>
-			<Table striped bordered hover responsive>
-				<thead className="bg-dark text-white">
-					<tr>
-						<th>STORE</th>
-						<th>CATEGORY</th>
-						<th>ADDRESS</th>
-						<th>STATUS</th>
-						<th>ACTIONS</th>
-					</tr>
-				</thead>
+			:
+			<div>
+				<div className="text-center my-2">
+					<h2 className="font-link">Admin Store Dashboard</h2>
+				</div>
+				<div><AddStore /></div>
 
-				<tbody>
-					{display}
-				</tbody>
-			</Table>
-
+				<p className="my-5 text-center">{message}</p>
+			</div>
+		}		
 		</>
 
 		)

@@ -71,7 +71,7 @@ export default function EditProduct({ prodId }){
 
 	return(
 		<>
-			<Button variant="primary" size="sm" onClick={() => openEdit(prodId)}>Update</Button>
+			<Button className="btns3" variant="primary" size="sm" onClick={() => openEdit(prodId)}>Update</Button>
 
 			<Modal show={showEdit} onHide={closeEdit}>
 				<Form onSubmit={e => sendForm(e)}>

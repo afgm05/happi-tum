@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Col, Row} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import UserContext from '../UserContext';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -86,40 +86,42 @@ return(
 	<Navigate to="/" />
 
 	:
+	<Row className="d-flex justify-content-center">
+	<Col xs={12} md={4}>
+		<Form onSubmit={e => authentication(e)} className="form">
+	        <h1 className="text-center">Login</h1>
+			<Form.Group className="formgroup">
+				<Form.Label>Email Address</Form.Label>
+				<Form.Control 
+				    type="email"
+				    placeholder="Enter your email"
+				    required
+				    value={email}
+				    onChange={e => setEmail(e.target.value)}
+				    />
+			</Form.Group>
 
-	<Form onSubmit={e => authentication(e)}>
-        <h1>Login</h1>
-		<Form.Group>
-			<Form.Label>Email Address</Form.Label>
-			<Form.Control 
-			    type="email"
-			    placeholder="Enter email"
-			    required
-			    value={email}
-			    onChange={e => setEmail(e.target.value)}
-			    />
-		</Form.Group>
-
-		<Form.Group>
-			<Form.Label>Password</Form.Label>
-			<Form.Control 
-			    type="password"
-			    placeholder="Enter your Password"
-			    required
-			    value={password}
-			    onChange={e => setPassword(e.target.value)}
-			    />
-		</Form.Group>
-		{ isActive ?
-		<Button variant="primary" type="submit" className="mt-3">
-			Submit
-		</Button>
-		:
-		<Button variant="primary" type="submit" className="mt-3" disabled>
-			Submit
-		</Button>
-		}
-	</Form>
-
+			<Form.Group className="formgroup">
+				<Form.Label>Password</Form.Label>
+				<Form.Control 
+				    type="password"
+				    placeholder="Enter your password"
+				    required
+				    value={password}
+				    onChange={e => setPassword(e.target.value)}
+				    />
+			</Form.Group>
+			{ isActive ?
+				<Button type="submit" className="mt-3 button">
+					Submit
+				</Button>
+				:
+				<Button type="submit" className="mt-3 button" disabled>
+					Submit
+				</Button>
+			}
+		</Form>
+	</Col>
+	</Row>
 	)
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Button, Modal, Form } from 'react-bootstrap';
+import { Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 export default function AddStore(){
@@ -64,15 +64,18 @@ export default function AddStore(){
 
 	
 	return(
-		<>
-			<Button variant="primary" size="sm" onClick={() => openAdd()}>Add Store</Button>
-
+		<>	
+		
+			<Col className="d-flex justify-content-center">
+				<Button className="addbtn my-3" size="sm" onClick={() => openAdd()}>Add Store</Button>
+			</Col>
+			
 		{/*Edit Modal*/}
 
 			<Modal show={showAdd} onHide={closeAdd}>
 				<Form onSubmit={addStore}>
 					<Modal.Header closeButton>
-						<Modal.Title>Edit Store</Modal.Title>
+						<Modal.Title>Add Store</Modal.Title>
 					</Modal.Header>
 
 					<Modal.Body>
@@ -119,8 +122,10 @@ export default function AddStore(){
 					</Modal.Body>
 
 					<Modal.Footer>
+				
 						<Button variant="secondary" onClick={closeAdd}>Close</Button>
 						<Button variant="success" type="submit">Submit</Button>
+				
 					</Modal.Footer>
 
 				</Form>

@@ -73,7 +73,7 @@ export default function StoreStatus(props) {
 		<>
 
 			{isActive  ?
-				<Button variant="danger" size="sm" onClick={() => deactivateToggle(storeId)}>Disable</Button>
+				<Button variant="secondary" size="sm" className="btngrp" onClick={() => deactivateToggle(storeId)}>Disable</Button>
 				:
 				<Button variant="success" size="sm" onClick={() => activateToggle(storeId)}>Enable</Button>
 

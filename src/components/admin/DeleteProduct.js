@@ -49,7 +49,7 @@ export default function DeleteOrder(prop) {
 		<>
 			<div>
 				{ 
-					<Button type="submit" onClick={deleteProduct}>Remove</Button>
+					<Button type="submit" size="sm" className="btngrp" variant="danger" onClick={deleteProduct}>Remove</Button>
 				}
 			</div>      
 			
