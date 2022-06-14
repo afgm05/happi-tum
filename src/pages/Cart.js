@@ -38,7 +38,7 @@ export default function Cart() {
 		setOrdersDisplay(ordersArr);
 	}, [allOrders])
 
-	
+	console.log(allOrders)
 									
 	return (
 		<>	

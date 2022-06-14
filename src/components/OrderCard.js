@@ -106,19 +106,19 @@ export default function OrderCard({orderProp}) {
 		  				return (
 		  					<ListGroupItem key={item._id} >
 		  						<Row onMouseOver={neededId} className="align-middle">
-		  							<Col className="text-center">
-				  						<Card.Img className="ordercardimg" src={`data:image/png;base64,${base64String}`} />	
+		  							<Col className="text-center align-middle my-auto">
+				  						<Card.Img className="orderCardImg" src={`data:image/png;base64,${base64String}`} />	
 		  							</Col>
 		  							<Col className="align-middle">
-		  								<Row className="pb-3">	
+		  								<Row className="pb-2">	
 			  								<Col>		
-					  							<Card.Text className="itemName fs-4">{item.name}</Card.Text>	
+					  							<Card.Text className="itemName fs-4 align-end">{item.name}</Card.Text>	
 					  						</Col>
 					  						<Col>
 					  							<Card.Text className="text-end"><RemoveOrderItem orderId={_id} productId={item.productId} /></Card.Text>	
 					  						</Col>
 				  						</Row>				
-				  						<Card.Text className="my-0">quantity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 
+				  						<Card.Text className="my-0"><span className="pe-4">quantity</span>: 
 				  						<span className="orderQtyBtn ms-3"> 
 					  						{
 					  							item.quantity > 1 ?
@@ -128,11 +128,11 @@ export default function OrderCard({orderProp}) {
 
 					  						}
 					  						<span className="itemqty">{item.quantity}</span>
-					  						<Button size="sm" className="plus" variant="secondary" onClick={plusQty}>+</Button>	
+					  						<Button size="sm" variant="secondary" className="plus" onClick={plusQty}>+</Button>	
 				  						</span>		
 					  					</Card.Text>		
-				  						<Card.Text className="my-0">price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp; {"\u20B1"} {item.price}</Card.Text>					
-				  						<Card.Text className="my-0">subtotal &nbsp;&nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"\u20B1"} {item.subtotal}</Card.Text>
+				  						<Card.Text className="my-0 pt-2"><span className="pe-5">price</span> : <span className="ps-3"> {"\u20B1"} {item.price}</span></Card.Text>					
+				  						<Card.Text className="my-0"><span className="pe-4">subtotal</span> : <span className="ps-3"> {"\u20B1"} {item.subtotal}</span></Card.Text>
 		  							</Col> 
 		  						</Row>				
 		  					</ListGroupItem>

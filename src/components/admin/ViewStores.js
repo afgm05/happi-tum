@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Table, Button, ButtonGroup } from 'react-bootstrap';
+import { Table, Button, ButtonGroup, Row, Col } from 'react-bootstrap';
 import { Navigate, useNavigate} from 'react-router-dom';
 import EditStore from './EditStore';
 import StoreStatus from './StoreStatus';
@@ -66,15 +66,14 @@ export default function ViewStores() {
 
 	}, [allStores])
 
-	
 
 	return(
 		<>
 		{
 			allStores.length?
 			<div>
-				<div className="text-center my-2">
-					<h2 className="font-link">Admin Store Dashboard</h2>
+				<div className="d-flex justify-content-center my-2">
+				<h2>Admin Store Dashboard</h2>
 				</div>
 				<div><AddStore /></div>
 				<Table striped bordered hover responsive className="font-link storetable"> 

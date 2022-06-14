@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { BsCart4 } from "react-icons/bs";
 
 
 
@@ -22,15 +23,15 @@ export default function ProductCard({productProp}) {
 	}
 
 	return (			
-		<Card className="catalogItem h-100 shadow ms-auto me-auto" style={{ width: '16rem', cursor: 'pointer' }} onClick={() => handleClick()}>
+		<Card className="catalogItem h-100 shadow ms-auto me-auto" onClick={() => handleClick()} style={{ width: '16rem', cursor: 'pointer'}}>
 		 	<Card.Img className="prodCatalogImg" variant="top" src={`data:image/png;base64,${base64String}`} />
 		  	<Card.Body className="p-2">
 		  		<Row>
 				  	<Col xs={6}>
-					    <Card.Text className="py-0 my-0"> { name } </Card.Text>
+					    <Card.Text className="py-0 my-0 fw-bold"> { name } </Card.Text>
 					    <Card.Text>{"\u20B1"} { price } </Card.Text>  		
 				  	</Col>
-				  	<Col xs={6} className="text-end my-auto"><Button size="sm" ><span className="catalogplus">+</span></Button></Col>
+				  	<Col xs={6} className="my-auto"><span className="fs-3 pe-1 d-flex justify-content-end"><BsCart4 /></span></Col>
 			  	</Row>
 		  	</Card.Body>
 		</Card>

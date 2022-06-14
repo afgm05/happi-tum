@@ -1,5 +1,8 @@
 import { Button, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import React, { Component } from 'react';
+import { GoX } from "react-icons/go";
+
 
 
 
@@ -41,7 +44,7 @@ export default function RemoveOrderItem(props) {
 		<>
 			<div>
 				{ 
-					<Button className="x-order" size="sm" type="submit" variant="danger" onClick={removeOrderItem}><div className="x"> X </div></Button>
+					<Button className="x-order" size="sm" type="submit" variant="ligth" onClick={removeOrderItem}><span className="x fs-5"><GoX /> </span></Button>
 				}
 			</div>      
 			

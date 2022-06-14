@@ -37,7 +37,7 @@ export default function RemoveOrder() {
 				
 	}
 
-	console.log(orderId)
+
 						
 	return(
 		<>

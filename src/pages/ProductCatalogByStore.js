@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import { Row, Col } from 'react-bootstrap';
-import FooterPage from './Footer';
+import FooterPage from '../components/Footer';
 
 
 export default function ProductCatalogByStore() {
 
 	const [ storeProducts, setStoreProducts ] = useState([]);
 	const [ ActiveProducts, setActiveProducts ] = useState([]);
+	const [ message, setMessage ] = useState('');
 
 	const storeId = sessionStorage.getItem("storeId");
 	const storeName = sessionStorage.getItem("restoName");
-	const message = `${storeName}'s Menu`;
+	const header = `${storeName}'s Menu`;
 	
 	useEffect(() => {
 		fetch(`http://localhost:4000/stores/${storeId}/products`)
@@ -44,20 +45,47 @@ export default function ProductCatalogByStore() {
 
 		} else {
 
-			setActiveProducts(`Sorry! There is no item on the menu yet.`)
+			setMessage(`Sorry! There is no item on the menu yet.`)
 		}
 
 	}, [storeProducts])	
 
+
 	return (
 		<>	
-			<div className="px-5 mb-5 pb-5">
-				<h2 className="my-5 justify-content-center d-flex" >{message}</h2>
-				<Row className="d-flex justify-content-center">
-					{ActiveProducts}	
-				</Row>
-			</div>
-				<FooterPage />
+			{
+				storeProducts.length ?
+				<div>
+					<div className="px-5 mb-5 pb-5">
+						<h2 className="my-5 justify-content-center d-flex" >{header}</h2>
+						<Row className="d-flex justify-content-center">
+							{ActiveProducts}	
+						</Row>
+					</div>
+					<FooterPage />
+				</div>
+				:
+				(storeProducts.length === undefined) ?
+				<div>
+					<div className="px-5 mb-5 pb-5">
+						<h2 className="my-5 justify-content-center d-flex" >{header}</h2>
+						<Row className="d-flex justify-content-center">
+							<div className="text-center fs-5 pt-4">{message}</div>	
+						</Row>
+					</div>
+					<div className="pt-4"><FooterPage /></div>
+				</div>
+				:
+				<div>
+					<div className="px-5 mb-5 pb-5">
+						<h2 className="my-5 justify-content-center d-flex" >{header}</h2>
+						<Row className="d-flex justify-content-center">
+							<div className="text-center fs-5 pt-4">Loading...</div>	
+						</Row>
+					</div>
+					<div className="pt-4"><FooterPage /></div>
+				</div>
+			}
 		</>
 	);
 }

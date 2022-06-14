@@ -26,20 +26,19 @@ export default function StoreCard({storeProp}) {
 	}
 
 	
-	return (		
-		<Row className="storerow d-flex h-100">
-		<Col className="justify-content-center">
-	
-		<Card style={{ width: '15rem', cursor: 'pointer'}} onClick={() => handleClick()} className="card text-center border-dark -border">
-		  <Card.Img variant="top" src={`data:image/png;base64,${base64String}`} />
-		  <Card.Body>
-		    <Card.Title> { storeName } </Card.Title>
-		    <Card.Text className="mb-0"> { category } </Card.Text>
-		    <Card.Text> {address} </Card.Text>
-		  </Card.Body>
-		</Card>
-		
-		</Col>
+	return (
+
+		<Row className="d-flex">
+			<Col className="justify-content-center mb-4">		
+				<Card style={{ width: '15rem', cursor: 'pointer'}} onClick={() => handleClick()} className="text-center border-dark -border h-100 border-0 shadow mx-auto">
+				  <Card.Img style={{height: '8rem'}} variant="top" src={`data:image/png;base64,${base64String}`} />
+				  <Card.Body className="p-0">
+				    <Card.Title className="my-0"> { storeName } </Card.Title>
+				    <Card.Text className="py-0 my-0" style={{fontSize: "14px"}}> { category } </Card.Text>
+				    <Card.Text style={{fontSize: "14px"}} className="pt-0 pb-1"> {address} </Card.Text>
+				  </Card.Body>
+				</Card>	
+			</Col>
 		</Row>
 	);
 	

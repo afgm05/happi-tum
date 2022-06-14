@@ -2,6 +2,7 @@ import { useState, useEffect} from 'react';
 import StoreCard from './StoreCard';
 import { Row, Col } from 'react-bootstrap';
 
+
 export default function ActiveStores() {
 
 	const [ allStores, setAllStores ] = useState([]);
@@ -32,11 +33,11 @@ export default function ActiveStores() {
 		setActiveStores(activeStoreArr);
 	}, [allStores])
 	
+	console.log(allStores.length)
 	return (
-		<>
-					
-			<Row>	
-			{activeStores}
+		<>		
+			<Row className="pb-5 mt-5">
+				<Col xs={8} className="d-flex flex-wrap ms-5">{activeStores}</Col>	
 			</Row>
 		</>
 	);

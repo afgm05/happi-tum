@@ -48,7 +48,7 @@ export default function Checkout() {
 		<>
 			<div>
 				{ 
-					<Button type="submit" variant="success" className="checkoutbtn" onClick={checkOut}>Checkout</Button>
+					<Button type="submit" className="checkoutbtn" onClick={checkOut}>Checkout</Button>
 				}
 			</div>      
 			

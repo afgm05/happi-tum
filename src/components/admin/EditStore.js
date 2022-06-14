@@ -71,7 +71,7 @@ export default function EditStore({ storeId }){
 
 	return(
 		<>
-			<Button variant="primary" className="btngrp" size="sm" onClick={() => openEdit(storeId)}>Update</Button>
+			<Button variant="success" className="btngrp" size="sm" onClick={() => openEdit(storeId)}>Update</Button>
 
 		{/*Edit Modal*/}
 
