@@ -70,7 +70,7 @@ export default function ViewStoreProducts() {
 				<div>
 					<div className="text-center my-2">
 						<h2 className="font-link">Admin Product Dashboard</h2>	
-						<h3 className="text-info">{storeName}</h3>		
+						<h3>{storeName}</h3>		
 					</div>
 					<AddProduct />
 					<Table striped bordered hover responsive className="font-link storetable">

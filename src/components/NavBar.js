@@ -53,11 +53,11 @@ export default function NavBar() {
 		                		<Nav.Link  as={Link} to="/" className="navlink">
 		                			<FaHome /><span className="ps-1">Home</span>
 		                		</Nav.Link>
-		                		<Nav.Link as={Link} to="/login" className="navlink">
-		                			<FiLogIn /><span className="ps-1">Login</span>
-		                		</Nav.Link>
 		                		<Nav.Link as={Link} to="/register" className="navlink">
 		                			<GiArchiveRegister /><span className="ps-1">Register</span>
+		                		</Nav.Link>
+		                		<Nav.Link as={Link} to="/login" className="navlink">
+		                			<FiLogIn /><span className="ps-1">Login</span>
 		                		</Nav.Link>
 
 		                	</>

@@ -48,7 +48,8 @@ export default function ActiveStores() {
 				<p className="text-end me-5 pe-3 mt-3 fs-4 pb-0 mb-0" style={{fontFamily: "Cabin", fontWeight: "bold", fontSize: "18px"}}>
 					<span className="me-2"><FaUserCircle /></span>Hello, {name} !</p>
 				<Row className="pb-5 d-flex">
-					<h5 style={{fontFamily: 'Courgette', color: 'orange', marginLeft: "250px", fontSize: "25px", paddingBottom: "5px"}}>Choose from variety of Restaurants</h5>
+					<h5 style={{fontFamily: 'Courgette', color: 'orange', fontSize: "25px", paddingBottom: "5px", paddingLeft: "250px"}}>
+					Choose from variety of Restaurants</h5>
 					<Col xs={7} className="d-flex flex-wrap ms-5">{activeStores}</Col>	
 					<Col xs={4} className="mt-5"><Banner /></Col>
 				</Row>
