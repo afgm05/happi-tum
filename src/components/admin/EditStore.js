@@ -11,6 +11,8 @@ export default function EditStore({ storeId }){
 	const [name, setName] = useState('');
 	const [category, setCategory] = useState('');
 	const [address, setAddress] = useState('');
+	const [newImage, setNewImage] = useState(false);
+	const [image, setImage] = useState();
 	
 	
 	const openEdit = (storeId) => {
@@ -29,43 +31,80 @@ export default function EditStore({ storeId }){
 		setShowEdit(false);
 	
 	}
+
+	const fileOnChange = (event) => {
+		setNewImage(true);
+		setImage(event.target.files[0]);
+	}
+
+	console.log(newImage)
 	
-	const sendForm = (event) => {	
+	const sendForm = (event) => {
 
-		fetch(`http://localhost:4000/stores/${storeId}`, {
-			method: "PUT",
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
-			},
-			body: JSON.stringify({
-				storeName: name,
-				category: category,
-				address: address
+		event.preventDefault();
+
+		if (newImage === true) {
+
+			let formData = new FormData();
+					
+				formData.append("storeName", name);
+				formData.append("category", category);
+				formData.append("address", address);
+				formData.append("storeImage", image);
+
+				fetch(`http://localhost:4000/stores/${storeId}/withImage`, {
+					method: "PUT",
+					headers: {
+							Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
+					},
+					body: formData,
+				})
+				.then(closeEdit())
+				.then(
+					Swal.fire({
+						title: 'Success',
+						icon: 'success',
+						text: 'Store successfully updated',
+						confirmButtonColor: '#3085d6',
+				  		confirmButtonText: 'Ok'
+					}).then(result => {
+						if(result.isConfirmed) {
+
+							window.location.reload()
+						}
+					})
+				)						
+					
+		} else {
+
+			fetch(`http://localhost:4000/stores/${storeId}`, {
+				method: "PUT",
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
+				},
+				body: JSON.stringify({
+					storeName: name,
+					category: category,
+					address: address
+				})
 			})
-		})
-		.then((res) => res.text())
-		.then((resBody) => {
-
-			if(resBody) {
+			.then(closeEdit())
+			.then(
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
-					text: 'Store successfully updated'
-				})
-				
-				
-			} else {
-				Swal.fire({
-					title: 'error',
-					icon: 'error',
-					text: `Encountered an Error.`
-				})
+					text: 'Store successfully updated',
+					confirmButtonColor: '#3085d6',
+			  		confirmButtonText: 'Ok'
+				}).then(result => {
+					if(result.isConfirmed) {
 
-				
-			}
-		});		
-		
+						window.location.reload()
+					}
+				})
+			)			
+		}	
 	}	
 
 
@@ -83,7 +122,7 @@ export default function EditStore({ storeId }){
 
 					<Modal.Body>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Name</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -93,7 +132,7 @@ export default function EditStore({ storeId }){
 								/>
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Category</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -103,7 +142,7 @@ export default function EditStore({ storeId }){
 							 />
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Address</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -111,6 +150,14 @@ export default function EditStore({ storeId }){
 							      	value={address}
 							      	onChange={e => setAddress(e.target.value)}
 							 />
+						</Form.Group>
+
+						<Form.Group controlId="formFileSm" className="my-2">
+						    <Form.Label>Restaurant Image (Optional)</Form.Label>
+						    <Form.Control
+						    		type="file" size="sm" 
+						    		onChange={fileOnChange}
+						    />
 						</Form.Group>
 
 					</Modal.Body>

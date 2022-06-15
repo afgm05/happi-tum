@@ -80,7 +80,7 @@ export default function AddProduct(){
 
 					<Modal.Body>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Name</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -89,7 +89,7 @@ export default function AddProduct(){
 								/>
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Description</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -98,7 +98,7 @@ export default function AddProduct(){
 							 />
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Price</Form.Label>
 							<Form.Control 
 							      	type="number"
@@ -107,7 +107,7 @@ export default function AddProduct(){
 							 />
 						</Form.Group>
 
-						<Form.Group controlId="formFileSm" className="mb-3">
+						<Form.Group controlId="formFileSm" className="my-2">
 						    <Form.Label>Product Image</Form.Label>
 						    <Form.Control
 						    		type="file" size="sm" 
@@ -120,7 +120,7 @@ export default function AddProduct(){
 
 					<Modal.Footer>
 						<Button variant="secondary" onClick={closeAdd}>Close</Button>
-						<Button variant="success" type="submit">Submit</Button>
+						<Button type="submit">Submit</Button>
 					</Modal.Footer>
 
 				</Form>

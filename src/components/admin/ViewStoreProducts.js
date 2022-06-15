@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Table, Button, ButtonGroup } from 'react-bootstrap';
+import { Table, Button, ButtonGroup, Row, Col} from 'react-bootstrap';
 import EditProduct from './EditProduct';
 import ProductStatus from './ProductStatus';
 import AddProduct from './AddProduct';
@@ -76,10 +76,10 @@ export default function ViewStoreProducts() {
 					<Table striped bordered hover responsive className="font-link storetable">
 						<thead className="bg-dark text-white">
 							<tr className="text-center">
-								<th>ITEM</th>
+								<th style={{width: "180px"}}>ITEM</th>
 								<th>DESCRIPTION</th>
-								<th>PRICE</th>
-								<th>STATUS</th>
+								<th style={{width: "120px"}}>PRICE</th>
+								<th style={{width: "100px"}}>STATUS</th>
 								<th>ACTIONS</th>
 							</tr>
 						</thead>
@@ -91,6 +91,7 @@ export default function ViewStoreProducts() {
 			
 				:
 
+				(storeProducts.length === undefined) ?
 				<div>
 					<div className="text-center my-2">
 						<h2 className="font-link">Admin Product Dashboard</h2>
@@ -100,6 +101,16 @@ export default function ViewStoreProducts() {
 	
 					<p className="my-5 text-center">{message}</p>
 						
+				</div>
+				:
+				<div>
+					<div className="text-center my-2">
+						<h2 className="font-link">Admin Product Dashboard</h2>
+						<h3>{storeName}</h3>			
+					</div>
+					<Row className="d-flex justify-content-center">
+						<div className="text-center fs-5 pt-4">Loading...</div>	
+					</Row>
 				</div>
 			}
 			</>

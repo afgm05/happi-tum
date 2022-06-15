@@ -35,7 +35,6 @@ export default function AddStore(){
 		formData.append("address", address);
 		formData.append("storeImage", image);
 		
-		sessionStorage.setItem('wa', formData)
 		fetch(`http://localhost:4000/stores/register`, {
 			method: "POST",
 			headers: {
@@ -80,7 +79,7 @@ export default function AddStore(){
 
 					<Modal.Body>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Name</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -90,7 +89,7 @@ export default function AddStore(){
 								/>
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Category</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -100,7 +99,7 @@ export default function AddStore(){
 							 />
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Address</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -110,7 +109,7 @@ export default function AddStore(){
 							 />
 						</Form.Group>
 
-						<Form.Group controlId="formFileSm" className="mb-3">
+						<Form.Group controlId="formFileSm" className="my-2">
 						    <Form.Label>Store Image</Form.Label>
 						    <Form.Control
 						    		type="file" size="sm" 
@@ -124,7 +123,7 @@ export default function AddStore(){
 					<Modal.Footer>
 				
 						<Button variant="secondary" onClick={closeAdd}>Close</Button>
-						<Button variant="success" type="submit">Submit</Button>
+						<Button type="submit">Submit</Button>
 				
 					</Modal.Footer>
 

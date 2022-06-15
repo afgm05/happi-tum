@@ -56,7 +56,8 @@ export default function ActiveStores() {
 			</>
 			:
 			<Row className="pb-5 mt-4 d-flex">
-				<h5 style={{fontFamily: 'Courgette', color: 'orange', marginLeft: "250px", fontSize: "25px", paddingBottom: "5px"}}>Choose from variety of Restaurants</h5>
+				<h5 style={{fontFamily: 'Courgette', color: 'orange', fontSize: "25px", paddingBottom: "5px", paddingLeft: "250px"}}>
+				Choose from variety of Restaurants</h5>
 				<Col xs={7} className="d-flex flex-wrap ms-5">{activeStores}</Col>	
 				<Col xs={4} className="mt-4"><Banner /></Col>
 			</Row>

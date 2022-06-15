@@ -11,6 +11,8 @@ export default function EditProduct({ prodId }){
 	const [name, setName] = useState('');
 	const [desc, setDesc] = useState('');
 	const [price, setPrice] = useState('');
+	const [newImage, setNewImage] = useState(false);
+	const [image, setImage] = useState();
 	
 	
 	const openEdit = (prodId) => {
@@ -29,43 +31,78 @@ export default function EditProduct({ prodId }){
 		setShowEdit(false);
 	
 	}
+
+	const fileOnChange = (event) => {
+		setNewImage(true);
+		setImage(event.target.files[0]);
+	}
 	
-	const sendForm = (event) => {	
+	const sendForm = (event) => {
 
-		fetch(`http://localhost:4000/products/${prodId}`, {
-			method: "PUT",
-			headers: {
-				'Content-Type': 'application/json',
-				Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
-			},
-			body: JSON.stringify({
-				name: name,
-				description: desc,
-				price: price
+		event.preventDefault();	
+
+		if (newImage === true) {
+			let formData = new FormData();
+			
+			formData.append("name", name);
+			formData.append("description", desc);
+			formData.append("price", price);
+			formData.append("productImage", image);
+
+			fetch(`http://localhost:4000/products/${prodId}/withImage`, {
+				method: "PUT",
+				headers: {
+					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
+				},
+				body: formData,
 			})
-		})
-		.then((res) => res.text())
-		.then((resBody) => {
-
-			if(resBody) {
+			.then(closeEdit())
+			.then(	
 				Swal.fire({
 					title: 'Success',
+					text: 'Item Successfully updated',
 					icon: 'success',
-					text: 'Store successfully updated'
-				})
-				
-				
-			} else {
-				Swal.fire({
-					title: 'error',
-					icon: 'error',
-					text: `Encountered an Error.`
+					confirmButtonColor: '#3085d6',
+			  		confirmButtonText: 'Ok'
+				}).then(result => {
+					if(result.isConfirmed) {
+
+						window.location.reload()
+					}
 				})
 
-				
-			}
-		});		
-		
+			)		
+
+		} else {
+
+			fetch(`http://localhost:4000/products/${prodId}`, {
+				method: "PUT",
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
+				},
+				body: JSON.stringify({
+					name: name,
+					description: desc,
+					price: price
+				})
+			})
+			.then(closeEdit())
+			.then(	
+				Swal.fire({
+					title: 'Success',
+					text: 'Item Successfully updated',
+					icon: 'success',
+					confirmButtonColor: '#3085d6',
+			  		confirmButtonText: 'Ok'
+				}).then(result => {
+					if(result.isConfirmed) {
+
+						window.location.reload()
+					}
+				})
+			)		
+		}		
 	}	
 
 
@@ -81,7 +118,7 @@ export default function EditProduct({ prodId }){
 
 					<Modal.Body>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Name</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -91,7 +128,7 @@ export default function EditProduct({ prodId }){
 								/>
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Description</Form.Label>
 							<Form.Control 
 							      	type="text"
@@ -101,7 +138,7 @@ export default function EditProduct({ prodId }){
 							 />
 						</Form.Group>
 
-						<Form.Group>
+						<Form.Group className="my-2">
 							<Form.Label>Price</Form.Label>
 							<Form.Control 
 							      	type="number"
@@ -109,6 +146,14 @@ export default function EditProduct({ prodId }){
 							      	value={price}
 							      	onChange={e => setPrice(e.target.value)}
 							 />
+						</Form.Group>
+
+						<Form.Group controlId="formFileSm" className="my-2">
+						    <Form.Label>Product Image (Optional)</Form.Label>
+						    <Form.Control
+						    		type="file" size="sm" 
+						    		onChange={fileOnChange}
+						    />
 						</Form.Group>
 
 					</Modal.Body>

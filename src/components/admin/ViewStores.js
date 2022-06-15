@@ -12,7 +12,7 @@ export default function ViewStores() {
 
 	const [ allStores, setAllStores ] = useState([]);
 	const [ display, setDisplay ] = useState([]);
-	const message = `There is no product in this store yet. Start adding them by clicking the "Add to Menu" Button`;
+	const message = `There is no registered store yet. Start adding them by clicking the "Add Store" Button`;
 	let navigate = useNavigate();
 
 	useEffect(() => {
@@ -66,7 +66,7 @@ export default function ViewStores() {
 
 	}, [allStores])
 
-
+	console.log(allStores.length)
 	return(
 		<>
 		{
@@ -93,6 +93,7 @@ export default function ViewStores() {
 				</Table>
 			</div>
 			:
+			(allStores.length === 0) ?
 			<div>
 				<div className="text-center my-2">
 					<h2 className="font-link">Admin Store Dashboard</h2>
@@ -100,6 +101,15 @@ export default function ViewStores() {
 				<div><AddStore /></div>
 
 				<p className="my-5 text-center">{message}</p>
+			</div>
+			:
+			<div>
+				<div className="text-center my-2">
+					<h2 className="font-link">Admin Store Dashboard</h2>
+				</div>	
+				<Row className="d-flex justify-content-center">
+					<div className="text-center fs-5 pt-4">Loading...</div>	
+				</Row>
 			</div>
 		}		
 		</>
