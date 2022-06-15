@@ -1,12 +1,12 @@
 import { Button, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
+
 export default function DeleteOrder(prop) {
 	
 	let productId = prop.prodId;
 	
 	const deleteProduct = () => {
-
 		Swal.fire({
 		  title: 'Are you sure?',
 		  text: "You won't be able to revert this!",
@@ -16,8 +16,7 @@ export default function DeleteOrder(prop) {
 		  cancelButtonColor: '#d33',
 		  confirmButtonText: 'Yes, delete it!'
 		})
-		.then((result) => {
-		  	
+		.then((result) => {		  	
 		  	if (result.isConfirmed) {
 
 		  		fetch('http://localhost:4000/products/delete', {
@@ -45,7 +44,7 @@ export default function DeleteOrder(prop) {
 	}
 		
 						
-	return(
+	return (
 		<>
 			<div>
 				{ 
@@ -54,5 +53,5 @@ export default function DeleteOrder(prop) {
 			</div>      
 			
 		</>
-	)
+	);
 }

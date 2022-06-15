@@ -3,15 +3,14 @@ import { useState } from 'react';
 import { Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
-export default function AddStore(){
 
+export default function AddStore(){
 	
 	const [ showAdd, setShowAdd ] = useState(false);
 	const [ name, setName ] = useState('');
 	const [ category, setCategory ] = useState('');
 	const [ address, setAddress ] = useState('');
 	const [ image, setImage ] = useState();
-
 	
 	const openAdd = () => {
 		setShowAdd(true)
@@ -20,7 +19,6 @@ export default function AddStore(){
 	const closeAdd = () => {
 		setShowAdd(false);
 	}
-
 
 	const fileOnChange = (event) => {
 		setImage(event.target.files[0]);
@@ -61,7 +59,6 @@ export default function AddStore(){
 	}	
 
 
-	
 	return(
 		<>	
 		
@@ -70,7 +67,6 @@ export default function AddStore(){
 			</Col>
 			
 		{/*Edit Modal*/}
-
 			<Modal show={showAdd} onHide={closeAdd}>
 				<Form onSubmit={addStore}>
 					<Modal.Header closeButton>
@@ -131,7 +127,5 @@ export default function AddStore(){
 			</Modal>
 
 		</>
-
-
-		)
+	);
 }

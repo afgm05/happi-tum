@@ -4,7 +4,6 @@ import { Button, Modal, Form, Col, Row } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 export default function AddProduct(){
-
 	
 	const [ showAdd, setShowAdd ] = useState(false);
 	const [ name, setName ] = useState('');
@@ -21,7 +20,6 @@ export default function AddProduct(){
 	const closeAdd = () => {
 		setShowAdd(false);
 	}
-
 
 	const fileOnChange = (event) => {
 		setImage(event.target.files[0]);
@@ -62,10 +60,8 @@ export default function AddProduct(){
 
 		)			
 	}
-
-	console.log(storeId)
 	
-	return(
+	return (
 		<>
 			<Col className="d-flex justify-content-center" >
 				<Button variant="primary" className="addbtn mt-2 mb-3" size="sm" onClick={() => openAdd()}>Add to Menu</Button>
@@ -130,6 +126,5 @@ export default function AddProduct(){
 
 		</>
 
-
-		)
+	);
 }

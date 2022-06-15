@@ -106,7 +106,7 @@ export default function EditProduct({ prodId }){
 	}	
 
 
-	return(
+	return (
 		<>
 			<Button className="btns3" variant="info" size="sm" onClick={() => openEdit(prodId)}>Update</Button>
 
@@ -169,7 +169,5 @@ export default function EditProduct({ prodId }){
 			</Modal>
 
 		</>
-
-
-		)
+	)
 }

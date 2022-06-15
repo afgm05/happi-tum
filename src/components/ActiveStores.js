@@ -16,8 +16,7 @@ export default function ActiveStores() {
 		.then(res => res.json())
 		.then(data => {
 			setAllStores(data)		
-		})
-		
+		})		
 	}, [])
 	
 	useEffect(() => {
@@ -36,13 +35,7 @@ export default function ActiveStores() {
 		setActiveStores(activeStoreArr);
 	}, [allStores])
 
-
-	useEffect(() => {
-
-
-
-	})
-
+	
 	return (
 		<>	
 		{

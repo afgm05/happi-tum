@@ -20,8 +20,7 @@ export default function ViewStores() {
 		.then(res => res.json())
 		.then(data => {
 			setAllStores(data)		
-		})
-		
+		})		
 	}, [])
 								
 
@@ -38,8 +37,6 @@ export default function ViewStores() {
 
 			const storesArr = allStores.map(store => {
 		
-
-
 				return(
 					<tr key={store._id} className="text-center">
 						<td className="text-start px-4">{store.storeName}</td>
@@ -59,15 +56,13 @@ export default function ViewStores() {
 					</tr>
 					)
 			})
-
-			setDisplay(storesArr)
-			
+			setDisplay(storesArr)			
 		} 
 
 	}, [allStores])
 
-	console.log(allStores.length)
-	return(
+
+	return (
 		<>
 		{
 			allStores.length?
@@ -114,5 +109,5 @@ export default function ViewStores() {
 		}		
 		</>
 
-		)
+	);
 }

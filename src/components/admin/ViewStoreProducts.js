@@ -7,18 +7,13 @@ import AddProduct from './AddProduct';
 import DeleteProduct from './DeleteProduct';
 
 
-
 export default function ViewStoreProducts() {
-
 
 	const [ storeProducts, setStoreProducts ] = useState([]);
 	const [ display, setDisplay ] = useState([]);
-	const message = `There is no product in this store yet. Start adding them by clicking the "Add to Menu" Button`;
-	
+	const message = `There is no product in this store yet. Start adding them by clicking the "Add to Menu" Button`;	
 	const storeId = sessionStorage.getItem('storeIdNeeded');
 	const storeName = sessionStorage.getItem('storeName');
-
-
 
 	useEffect(() => {
 		fetch(`http://localhost:4000/stores/${storeId}/products`)
@@ -28,14 +23,11 @@ export default function ViewStoreProducts() {
 		})		
 	}, [])
 
-
 	useEffect(() => {
 
 		if (storeProducts.length) {
-
 			const prodArr = storeProducts.map(item => {
-
-				return(
+				return (
 					<tr key={item._id} className="text-center">
 						<td className="text-start px-4">{item.name}</td>
 						<td className="text-start px-4">{item.description}</td>
@@ -51,21 +43,16 @@ export default function ViewStoreProducts() {
 							</ButtonGroup>
 						</td>
 					</tr>
-					)
+				);
 			})
-
 			setDisplay(prodArr)
-
 		}
-
 	}, [storeProducts])
 
 
-
-	return(
+	return (
 			<>
-			{
-			
+			{			
 				storeProducts.length ?
 				<div>
 					<div className="text-center my-2">
@@ -87,10 +74,8 @@ export default function ViewStoreProducts() {
 							{display}
 						</tbody>	
 					</Table>
-				</div>
-			
+				</div>			
 				:
-
 				(storeProducts.length === undefined) ?
 				<div>
 					<div className="text-center my-2">
@@ -114,6 +99,5 @@ export default function ViewStoreProducts() {
 				</div>
 			}
 			</>
-
-		)
+	);
 }

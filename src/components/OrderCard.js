@@ -5,8 +5,6 @@ import RemoveOrder from './RemoveOrder';
 import RemoveOrderItem from './RemoveOrderItem';
 
 
-
-
 export default function OrderCard({orderProp}) {
 
 	const { _id, userId, storeId, storeName, products, totalAmount } = orderProp;
@@ -38,7 +36,6 @@ export default function OrderCard({orderProp}) {
 
 	const updateOrder = () => {
 
-
 		let orderProductId = sessionStorage.getItem('orderProductId');
 		let orderId = sessionStorage.getItem('orderId');
 		let newQty = sessionStorage.getItem('quantity');
@@ -57,7 +54,6 @@ export default function OrderCard({orderProp}) {
 		})
 		.then(res => res.json())
 	}
-
 
 
 	return (
@@ -155,9 +151,7 @@ export default function OrderCard({orderProp}) {
 		  	</Row>
 		  	</Card.Text>
 		</Card>	
-
-	)
-	
+	);	
 }
 
 

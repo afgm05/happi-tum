@@ -2,16 +2,11 @@ import { Button, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 
-
 export default function DeleteStore(prop) {
 	
 	let storeId = prop.storeId;
 
-	
-
 	const deleteStore = () => {
-
-
 		Swal.fire({
 		  title: 'Are you sure?',
 		  text: "The Store and all the items in its Menu will be deleted. You won't be able to revert this!",
@@ -51,11 +46,6 @@ export default function DeleteStore(prop) {
 		})
 	}
 
-
-
-
-
-
 						
 	return(
 		<>
@@ -66,6 +56,5 @@ export default function DeleteStore(prop) {
 			</div>      
 			
 		</>
-
-	)
+	);
 }

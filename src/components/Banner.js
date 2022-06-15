@@ -1,14 +1,10 @@
 import { Row, Col, Carousel } from 'react-bootstrap';
 
 
-
 export default function Banner() {
-  
-  
+   
   return (
-      <>
-
-        
+      <>       
         <Carousel>
           <Carousel.Item interval={1000}>
             <img
@@ -41,7 +37,6 @@ export default function Banner() {
         </Carousel>
       </>
   );
-
 }
 
 

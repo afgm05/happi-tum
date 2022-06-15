@@ -20,7 +20,8 @@ export default function AddOrder() {
 			Swal.fire({
 				title: 'error',
 				icon: 'error',
-				text: 'Your account is an Admin'
+				text: 'Your account is an Admin',
+				confirmButtonColor: '#3085d6'
 			})
 
 		} else {
@@ -68,10 +69,8 @@ export default function AddOrder() {
 	}
 			
 
-	return(
-		<>
-			
-			
+	return (
+		<>			
 			<ButtonGroup className="d-flex justify-content-center">
 				<span className="d-flex mb-2" style={{border: "solid", borderWidth: "thin"}}>
 					{
@@ -95,7 +94,6 @@ export default function AddOrder() {
 					<Button className="btngrp" variant="secondary" onClick={() => setCount(count + 1)}>+</Button>
 				</span>
 			</ButtonGroup>
-
 			{
 				(user.accessToken !== null) ?
 
@@ -111,13 +109,9 @@ export default function AddOrder() {
 				<div className="d-flex justify-content-center">
 					<Button type="submit" className="w-100" onClick={e => addOrder()}>Log in to purchase</Button>
 				</div>  
-			}
-			   
-			
+			}			   			
 		</>
-
-
-		)
+	);
 }
 
 

@@ -5,15 +5,13 @@ import Swal from 'sweetalert2';
 import { Navigate } from 'react-router-dom';
 
 export default function EditStore({ storeId }){
-
 	
 	const [ showEdit, setShowEdit ] = useState(false);
 	const [name, setName] = useState('');
 	const [category, setCategory] = useState('');
 	const [address, setAddress] = useState('');
 	const [newImage, setNewImage] = useState(false);
-	const [image, setImage] = useState();
-	
+	const [image, setImage] = useState();	
 	
 	const openEdit = (storeId) => {
 		fetch(`http://localhost:4000/stores/${storeId}/details`)
@@ -37,8 +35,6 @@ export default function EditStore({ storeId }){
 		setImage(event.target.files[0]);
 	}
 
-	console.log(newImage)
-	
 	const sendForm = (event) => {
 
 		event.preventDefault();
@@ -73,8 +69,7 @@ export default function EditStore({ storeId }){
 							window.location.reload()
 						}
 					})
-				)						
-					
+				)											
 		} else {
 
 			fetch(`http://localhost:4000/stores/${storeId}`, {
@@ -108,7 +103,7 @@ export default function EditStore({ storeId }){
 	}	
 
 
-	return(
+	return (
 		<>
 			<Button variant="success" className="btngrp" size="sm" onClick={() => openEdit(storeId)}>Update</Button>
 
@@ -168,12 +163,8 @@ export default function EditStore({ storeId }){
 							<Button variant="success" type="submit">Submit</Button>
 				
 					</Modal.Footer>
-
 				</Form>
 			</Modal>
-
 		</>
-
-
-		)
+	)
 }

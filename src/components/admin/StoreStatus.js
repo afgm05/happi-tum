@@ -4,13 +4,10 @@ import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 
-
 export default function StoreStatus(props) {
 
 	let storeId = props.storeId;
 	let isActive = props.isActive;
-
-
 
 	const deactivateToggle = (storeId) => {
 		fetch(`http://localhost:4000/stores/${storeId}/deactivate`,{
@@ -27,16 +24,13 @@ export default function StoreStatus(props) {
 					icon: 'success',
 					text: 'Store successfully disabled'
 				
-				}).then (res => window.location.reload())
-			
-				
+				}).then (res => window.location.reload())				
 			}else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
 					text: 'Something went wrong'
-				}).then (res => window.location.reload())
-		
+				}).then (res => window.location.reload())		
 			}
 		})
 	}
@@ -68,17 +62,14 @@ export default function StoreStatus(props) {
 		})
 	}
 
-	return(
-
+	return (
 		<>
-
 			{isActive  ?
 				<Button variant="secondary" size="sm" className="btngrp" onClick={() => deactivateToggle(storeId)}>Disable</Button>
 				:
 				<Button variant="success" size="sm" onClick={() => activateToggle(storeId)}>Enable</Button>
-
 			}
 			
 		</>
-		)
+	);
 }

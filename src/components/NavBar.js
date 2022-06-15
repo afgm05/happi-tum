@@ -8,7 +8,6 @@ import { RiFileListLine } from "react-icons/ri";
 import { GiArchiveRegister } from "react-icons/gi";
 
 
-
 export default function NavBar() {
 
 	const { user } = useContext(UserContext);
@@ -77,5 +76,5 @@ export default function NavBar() {
 		      </Container>
 		   </Navbar>
 		</>
-	)
+	);
 }

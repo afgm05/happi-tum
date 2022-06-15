@@ -7,6 +7,5 @@ export default function EmptyCart() {
 		<div className="d-flex justify-content-center pt-5">
 			 <Empty />
 		</div>
-
-	)
+	);
 }

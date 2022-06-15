@@ -2,11 +2,9 @@ import { Button, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 
-
 export default function Checkout() {
 	
 	let orderId = sessionStorage.getItem('orderId')
-
 
 	const checkOut = () => {
 
@@ -37,24 +35,17 @@ export default function Checkout() {
 				}).then(() => window.location.reload(false))
 			} 
 				
-		})		
-
-
-				
+		})						
 	}
 
-	
-						
+							
 	return(
 		<>
 			<div>
 				{ 
 					<Button type="submit" className="checkoutbtn" onClick={checkOut}>Checkout</Button>
 				}
-			</div>      
-			
+			</div>      			
 		</>
-
-
 		);
 }

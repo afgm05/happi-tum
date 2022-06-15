@@ -4,12 +4,10 @@ import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 
-
 export default function ProductStatus(props) {
 
 	let prodId = props.prodId;
 	let isActive = props.isActive;
-
 
 	const deactivateToggle = (prodId) => {
 		fetch(`http://localhost:4000/products/${prodId}/archive`,{
@@ -37,7 +35,6 @@ export default function ProductStatus(props) {
 
 		window.location.reload()
 	}
-
 
 	
 	const activateToggle = (prodId) => {
@@ -68,10 +65,8 @@ export default function ProductStatus(props) {
 		window.location.reload()
 	}
 
-	return(
-
+	return (
 		<>
-
 			{isActive  ?
 				<Button variant="secondary" size="sm" onClick={() => deactivateToggle(prodId)}>Disable</Button>
 				:
@@ -80,5 +75,5 @@ export default function ProductStatus(props) {
 			}
 			
 		</>
-		)
+	);
 }

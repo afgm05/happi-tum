@@ -12,23 +12,18 @@ export default function CustomerView({productsData}) {
 		const activeProductsArr = productsData.map(product => {
 			
 			if (product.isActive === true) {
-
 				return (
 					<Col md="auto" className="justify-content-center" key={product._id}>
 					<ProductCard  productProp={product}/>
 					</Col>
 				);
-
 			} else {
-
 				return null;
-
 			}
 		})
-
 		setActiveProducts(activeProductsArr)
-
 	}, [productsData])
+
 
 	return (
 		<>
