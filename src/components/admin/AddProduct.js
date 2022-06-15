@@ -36,7 +36,7 @@ export default function AddProduct(){
 		formData.append("storeId", storeId);
 
 
-		fetch(`http://localhost:4000/products/create`, {
+		fetch(`https://happitum.herokuapp.com/products/create`, {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
