@@ -26,7 +26,8 @@ export default function Checkout() {
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
-					text: `Order Checked-out! Wait for the delivery.`
+					text: `Order Checked-out! Wait for the delivery.`,
+					confirmButtonColor: '#3085d6'
 				}).then(() => window.location.reload(false))	
 			} else {
 				Swal.fire({

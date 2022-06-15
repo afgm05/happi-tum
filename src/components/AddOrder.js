@@ -45,7 +45,8 @@ export default function AddOrder() {
 						Swal.fire({
 							title: 'Success',
 							icon: 'success',
-							text: 'Order added to Cart'
+							text: 'Order added to Cart',
+							confirmButtonColor: '#3085d6'
 						}).then(result => {
 
 							if(result.isConfirmed) {

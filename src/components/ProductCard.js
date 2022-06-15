@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { BsCart4 } from "react-icons/bs";
 
 
-
 export default function ProductCard({productProp}) {
 
 	const { _id, name, description, price, image } = productProp;
@@ -35,7 +34,6 @@ export default function ProductCard({productProp}) {
 			  	</Row>
 		  	</Card.Body>
 		</Card>
-	);
-	
+	);	
 }
 

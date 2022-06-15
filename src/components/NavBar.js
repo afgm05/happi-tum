@@ -8,10 +8,11 @@ import { RiFileListLine } from "react-icons/ri";
 import { GiArchiveRegister } from "react-icons/gi";
 
 
+
 export default function NavBar() {
 
 	const { user } = useContext(UserContext);
-	
+	const name = localStorage.getItem('firstName');
 
 	return (
 		<>
@@ -30,7 +31,12 @@ export default function NavBar() {
     	                	<>
     	                		<Nav.Link  as={Link} to="/" className="navlink">Customer's View</Nav.Link>
     		                	<Nav.Link as={Link} to="/admin" className="navlink">Admin Dashboard</Nav.Link>
-    		                	<Nav.Link as={Link} to="/logout" className="navlink">Logout</Nav.Link>
+    		                	<Nav.Link as={Link} to="/logout" className="navlink">
+    		                		<FiLogOut /><span className="ps-1">Logout</span>
+    		                	</Nav.Link>
+    		                	<Nav.Link className="navlink pe-0 me-0">
+    		                		<FaUserCircle /><span className="ps-1">Hello, &nbsp; {name} !</span>
+    		                	</Nav.Link>
     		                </>
     		                :
 		                	(user.accessToken !== null) ?		
@@ -46,6 +52,9 @@ export default function NavBar() {
 			                	</Nav.Link>
 			                	<Nav.Link as={Link} to="/logout" className="navlink">
 			                		<FiLogOut /><span className="ps-1">Logout</span>
+			                	</Nav.Link>
+			                	<Nav.Link className="navlink pe-0 me-0">
+			                		<FaUserCircle /><span className="ps-1">Hello, {name} !</span>
 			                	</Nav.Link> 	
 			                </>
 		                	:

@@ -108,7 +108,7 @@ export default function EditProduct({ prodId }){
 
 	return(
 		<>
-			<Button className="btns3" variant="success" size="sm" onClick={() => openEdit(prodId)}>Update</Button>
+			<Button className="btns3" variant="info" size="sm" onClick={() => openEdit(prodId)}>Update</Button>
 
 			<Modal show={showEdit} onHide={closeEdit}>
 				<Form onSubmit={e => sendForm(e)}>
@@ -132,6 +132,8 @@ export default function EditProduct({ prodId }){
 							<Form.Label>Description</Form.Label>
 							<Form.Control 
 							      	type="text"
+							      	as="textarea"
+							      	rows={3}
 							      	required
 							      	value={desc}
 							      	onChange={e => setDesc(e.target.value)}
@@ -160,7 +162,7 @@ export default function EditProduct({ prodId }){
 
 					<Modal.Footer>
 						<Button variant="secondary" onClick={closeEdit}>Close</Button>
-						<Button variant="success" type="submit">Submit</Button>
+						<Button variant="info" type="submit">Submit</Button>
 					</Modal.Footer>
 
 				</Form>

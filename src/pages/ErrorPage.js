@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 export default function ErrorPage() {
-	return(
+	return (
 		<Row>
 			<Col>
 				<h1>404 - Page Not Found</h1>
@@ -11,5 +11,5 @@ export default function ErrorPage() {
 				<Button variant="primary" as={ Link } to="/">Back Home</Button>
 			</Col>
 		</Row>
-		)
+	);
 }

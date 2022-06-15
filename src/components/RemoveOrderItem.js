@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import { GoX } from "react-icons/go";
 
 
-
-
 export default function RemoveOrderItem(props) {
 	
 	const { orderId, productId } = props;	
@@ -35,12 +33,11 @@ export default function RemoveOrderItem(props) {
 				})
 			} 
 				
-		})		
-				
+		})						
 	}
 
 						
-	return(
+	return (
 		<>
 			<div>
 				{ 
@@ -49,7 +46,5 @@ export default function RemoveOrderItem(props) {
 			</div>      
 			
 		</>
-
-
-		);
+	);
 }

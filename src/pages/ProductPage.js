@@ -18,8 +18,7 @@ export default function Product() {
 		.then(res => res.json())
 		.then(data => {
 			setProduct(data)
-		})
-		
+		})		
 	}, [])
 
 	
@@ -45,7 +44,6 @@ export default function Product() {
 		    </Row>
 	    	<div style={{paddingTop: "120px"}}><Footer /></div>
 	    </>
-
 	);
 }
 

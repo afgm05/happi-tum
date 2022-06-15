@@ -2,11 +2,9 @@ import { Button, ButtonGroup, ToggleButton } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 
-
 export default function RemoveOrder() {
 	
 	let orderId = sessionStorage.getItem('orderId')
-
 
 	const removeOrder = () => {
 
@@ -37,9 +35,8 @@ export default function RemoveOrder() {
 				
 	}
 
-
-						
-	return(
+					
+	return (
 		<>
 			<div>
 				{ 
@@ -48,7 +45,5 @@ export default function RemoveOrder() {
 			</div>      
 			
 		</>
-
-
-		);
+	);
 }

@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
-
 import OrderCard from '../components/OrderCard';
 import EmptyCart from '../components/EmptyCart';
 import Footer from '../components/Footer';
-
 
 
 export default function Cart() {
@@ -23,8 +21,7 @@ export default function Cart() {
 		.then(res => res.json())
 		.then(data => {
 			setAllOrders(data)
-		})
-		
+		});		
 	}, [])
 	
 
@@ -39,7 +36,6 @@ export default function Cart() {
 		setOrdersDisplay(ordersArr);
 	}, [allOrders])
 
-	console.log(allOrders)
 									
 	return (
 		<>	
@@ -58,7 +54,6 @@ export default function Cart() {
 			<div style={{paddingTop: "140px"}}>
 				<Footer />
 			</div>
-		</>	
-			
-	)
+		</>				
+	);
 }

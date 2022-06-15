@@ -7,6 +7,7 @@ export default function History() {
 	const [ history, setHistory ] = useState([]);
 	const [ display, setDisplay ] = useState();
 
+
 	useEffect(() => {
 		fetch(`http://localhost:4000/history/all`, {
 			headers: {
@@ -20,6 +21,7 @@ export default function History() {
 		})
 		
 	}, [])
+
 
 	useEffect(() => {
 		const historyArr = history.map(order => {
@@ -70,8 +72,7 @@ export default function History() {
 	}, [history])	
 
 
-
-	return(
+	return (
 		<> 
 		{	
 			history.length ?
@@ -98,11 +99,7 @@ export default function History() {
 			<div>
 				<p className="my-5 py-5 text-center fs-4">You have not made any purchase yet.</p>
 			</div>
-
-
-		
 		}
 		</>
-
-		)
+	);
 }

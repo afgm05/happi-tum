@@ -24,6 +24,7 @@ useEffect(() => {
 
 }, [email, password])
 
+
 function authentication(e) {
 	e.preventDefault();
 
@@ -53,18 +54,10 @@ function authentication(e) {
 			})
 			.then(res => res.json())
 			.then(data => {
-
-				localStorage.setItem('firstName', data.firstName)
-
-				if(data.isAdmin === true) {
-					localStorage.setItem('isAdmin', data.isAdmin)
-
-					setUser({
-						isAdmin: data.isAdmin
-					})
-				}
-			})
-				   
+				localStorage.setItem('firstName', data.firstName);			
+				localStorage.setItem('isAdmin', data.isAdmin);
+				setUser({isAdmin: data.isAdmin});
+			})				   
 		} else {
 			Swal.fire({
 				title: 'Ooopsss',
@@ -72,12 +65,12 @@ function authentication(e) {
 				text: 'Something went wrong. Check your Credentials'
 			})
 		}
-
-		setEmail('')
-		setPassword('')
+		setEmail('');
+		setPassword('');
 	})
 
 }
+
 
 return(
 

@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
 import { UserProvider } from './UserContext';
-
 import './App.css';
 import Home from './pages/Home';
 import NavBar from './components/NavBar';

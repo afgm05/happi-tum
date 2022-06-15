@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 
-
 export default function StoreCard({storeProp}) {
-
 
 	const { _id, storeName, category, address, image } = storeProp;
 	const navigate = useNavigate();
@@ -16,8 +14,6 @@ export default function StoreCard({storeProp}) {
 	let binary = '';
 	bytes.forEach((b) => binary += String.fromCharCode(b));
 	const base64String = btoa(binary);
-	
-
 	
 	function handleClick() {
 		sessionStorage.setItem('storeId', _id);
@@ -40,6 +36,5 @@ export default function StoreCard({storeProp}) {
 				</Card>	
 			</Col>
 		</Row>
-	);
-	
+	);	
 }

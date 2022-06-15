@@ -60,27 +60,24 @@ export default function Register() {
 			} else {
 
 				Swal.fire({
-					title: 'Yaaaaaaaaaaaay!',
+					title: 'Yay!',
 					icon: 'success',
-					text: 'You have successfully registered!'
+					text: 'You have successfully registered!',
+					confirmButtonColor: '#3085d6'
 				})
 
 				setSuccessReg(true);
 			}
-
-
 		})
-
 
 		//Clear input fields
 		setEmail('');
 		setPassword('');
-		setVerifyPassword('');
-				
+		setVerifyPassword('');				
 	}
 
 
-	return(
+	return (
 
 		(successReg === true) ? 
 
@@ -174,5 +171,5 @@ export default function Register() {
 			</Row>
 			<Row><Footer /></Row>
 		</>
-	)
+	);
 }

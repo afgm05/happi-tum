@@ -92,7 +92,9 @@ export default function AddProduct(){
 						<Form.Group className="my-2">
 							<Form.Label>Description</Form.Label>
 							<Form.Control 
-							      	type="text"
+									type="text"
+							      	as="textarea"
+							      	rows={3}
 							      	required
 							      	onChange={e => setDescription(e.target.value)}
 							 />
