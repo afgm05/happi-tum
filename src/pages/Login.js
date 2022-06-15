@@ -62,7 +62,8 @@ function authentication(e) {
 			Swal.fire({
 				title: 'Ooopsss',
 				icon: 'error',
-				text: 'Something went wrong. Check your Credentials'
+				text: 'Something went wrong. Check your Credentials',
+				confirmButtonColor: '#3085d6',
 			})
 		}
 		setEmail('');
