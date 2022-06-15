@@ -63,7 +63,7 @@ function authentication(e) {
 				title: 'Ooopsss',
 				icon: 'error',
 				text: 'Something went wrong. Check your Credentials',
-				confirmButtonColor: '#3085d6',
+				confirmButtonColor: '#3085d6'
 			})
 		}
 		setEmail('');
