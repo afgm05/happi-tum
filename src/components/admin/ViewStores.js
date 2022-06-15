@@ -16,7 +16,7 @@ export default function ViewStores() {
 	let navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('https://happitum.herokuapp.com/stores/')
+		fetch('https://happitum-trial.herokuapp.com/stores/')
 		.then(res => res.json())
 		.then(data => {
 			setAllStores(data)		

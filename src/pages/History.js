@@ -9,7 +9,7 @@ export default function History() {
 
 
 	useEffect(() => {
-		fetch(`https://happitum.herokuapp.com/history/all`, {
+		fetch(`https://happitum-trial.herokuapp.com/history/all`, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
