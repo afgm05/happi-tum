@@ -23,17 +23,15 @@ export default function ProductStatus(props) {
 					title: 'success',
 					icon: 'success',
 					text: 'Store successfully disabled'
-				})
+				}).then (res => window.location.reload())	
 			} else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
 					text: 'Something went wrong'
-				})
+				}).then (res => window.location.reload())	
 			}
 		})
-
-		window.location.reload()
 	}
 
 	
