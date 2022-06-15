@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import UserContext from '../UserContext';
 import { FaUserCircle, FaHome, FaShoppingCart } from "react-icons/fa";
 import { FiLogOut, FiLogIn } from "react-icons/fi";
@@ -11,7 +11,6 @@ import { GiArchiveRegister } from "react-icons/gi";
 export default function NavBar() {
 
 	const { user } = useContext(UserContext);
-
 	
 
 	return (
@@ -34,7 +33,7 @@ export default function NavBar() {
     		                	<Nav.Link as={Link} to="/logout" className="navlink">Logout</Nav.Link>
     		                </>
     		                :
-		                	(user.accessToken !== null) ?
+		                	(user.accessToken !== null) ?		
 		                	<>	
 		                		<Nav.Link  as={Link} to="/" className="navlink">
 		                			<FaHome /><span className="ps-1">Home</span>
@@ -47,11 +46,7 @@ export default function NavBar() {
 			                	</Nav.Link>
 			                	<Nav.Link as={Link} to="/logout" className="navlink">
 			                		<FiLogOut /><span className="ps-1">Logout</span>
-			                	</Nav.Link>
-			                	<Nav.Link className="navlink">
-			                		<FaUserCircle /><span className="ps-1">Hello,&nbsp;&nbsp;</span>
-			                	</Nav.Link>
-			                	
+			                	</Nav.Link> 	
 			                </>
 		                	:
 		                	<>
@@ -73,5 +68,5 @@ export default function NavBar() {
 		      </Container>
 		   </Navbar>
 		</>
-	);
+	)
 }

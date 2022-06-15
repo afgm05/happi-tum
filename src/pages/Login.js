@@ -41,9 +41,9 @@ function authentication(e) {
 		if (data.accessToken !== undefined) {
 			localStorage.setItem('accessToken', data.accessToken);
 			setUser({
-				accessToken: data.accessToken
-			})
+				accessToken: data.accessToken,
 
+			})
 
 			//get user's details from our token
 			fetch('http://localhost:4000/users/details', {
@@ -53,8 +53,8 @@ function authentication(e) {
 			})
 			.then(res => res.json())
 			.then(data => {
-				
-				localStorage.setItem('userName', data.firstName);
+
+				localStorage.setItem('firstName', data.firstName)
 
 				if(data.isAdmin === true) {
 					localStorage.setItem('isAdmin', data.isAdmin)
@@ -62,11 +62,9 @@ function authentication(e) {
 					setUser({
 						isAdmin: data.isAdmin
 					})
-
 				}
-
 			})
-
+				   
 		} else {
 			Swal.fire({
 				title: 'Ooopsss',
@@ -86,7 +84,6 @@ return(
 	(user.accessToken !== null) ?
 
 	<Navigate to="/" />
-
 	:
 	<>
 		<Row className="d-flex justify-content-center">

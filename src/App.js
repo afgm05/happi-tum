@@ -27,6 +27,7 @@ function App() {
 
   const unsetUser = () => {
       localStorage.clear();
+      sessionStorage.clear();
   }
 
   return (  

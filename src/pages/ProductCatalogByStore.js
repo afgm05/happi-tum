@@ -57,7 +57,7 @@ export default function ProductCatalogByStore() {
 				storeProducts.length ?
 				<div>
 					<div className="px-5 mb-5 pb-5">
-						<h2 className="my-5 justify-content-center d-flex" >{header}</h2>
+						<h2 className="my-4 justify-content-center d-flex">{header}</h2>
 						<Row className="d-flex justify-content-center">
 							{ActiveProducts}	
 						</Row>
@@ -68,7 +68,7 @@ export default function ProductCatalogByStore() {
 				(storeProducts.length === undefined) ?
 				<div>
 					<div className="px-5 mb-5 pb-5">
-						<h2 className="my-5 justify-content-center d-flex" >{header}</h2>
+						<h2 className="my-4 justify-content-center d-flex">{header}</h2>
 						<Row className="d-flex justify-content-center">
 							<div className="text-center fs-5 pt-4">{message}</div>	
 						</Row>
@@ -78,7 +78,7 @@ export default function ProductCatalogByStore() {
 				:
 				<div>
 					<div className="px-5 mb-5 pb-5">
-						<h2 className="my-5 justify-content-center d-flex" >{header}</h2>
+						<h2 className="my-4 justify-content-center d-flex">{header}</h2>
 						<Row className="d-flex justify-content-center">
 							<div className="text-center fs-5 pt-4">Loading...</div>	
 						</Row>

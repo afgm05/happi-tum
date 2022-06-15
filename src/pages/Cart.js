@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 
 import OrderCard from '../components/OrderCard';
 import EmptyCart from '../components/EmptyCart';
+import Footer from '../components/Footer';
 
 
 
@@ -45,7 +46,7 @@ export default function Cart() {
 			{
 				allOrders.length ?
 				<div>
-					<h2 className="text-center mb-4">Your Orders</h2>
+					<h2 className="text-center mb-4 mt-4">Your Orders</h2>
 					{ordersDisplay}	
 				</div>
 				:
@@ -54,6 +55,9 @@ export default function Cart() {
 					<p className="text-center fs-4">You have no active order</p>
 				</div>
 			}
+			<div style={{paddingTop: "140px"}}>
+				<Footer />
+			</div>
 		</>	
 			
 	)
