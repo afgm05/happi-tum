@@ -10,7 +10,7 @@ export default function StoreStatus(props) {
 	let isActive = props.isActive;
 
 	const deactivateToggle = (storeId) => {
-		fetch(`https://happitum-trial.herokuapp.com/stores/${storeId}/deactivate`,{
+		fetch(`https://happitum.herokuapp.com/stores/${storeId}/deactivate`,{
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
@@ -37,7 +37,7 @@ export default function StoreStatus(props) {
 
 	
 	const activateToggle = (storeId) => {
-		fetch(`https://happitum-trial.herokuapp.com/stores/${storeId}/activate`, {
+		fetch(`https://happitum.herokuapp.com/stores/${storeId}/activate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`

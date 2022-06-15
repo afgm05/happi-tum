@@ -33,7 +33,7 @@ export default function AddStore(){
 		formData.append("address", address);
 		formData.append("storeImage", image);
 		
-		fetch(`https://happitum-trial.herokuapp.com/stores/register`, {
+		fetch(`https://happitum.herokuapp.com/stores/register`, {
 			method: "POST",
 			headers: {
 					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
@@ -50,7 +50,6 @@ export default function AddStore(){
 		  		confirmButtonText: 'Ok'
 			}).then(result => {
 				if(result.isConfirmed) {
-
 					window.location.reload()
 				}
 			})

@@ -12,11 +12,10 @@ export default function ViewStores() {
 
 	const [ allStores, setAllStores ] = useState([]);
 	const [ display, setDisplay ] = useState([]);
-	const message = `There is no registered store yet. Start adding them by clicking the "Add Store" Button`;
 	let navigate = useNavigate();
 
 	useEffect(() => {
-		fetch('https://happitum-trial.herokuapp.com/stores/')
+		fetch('https://happitum.herokuapp.com/stores/')
 		.then(res => res.json())
 		.then(data => {
 			setAllStores(data)		
@@ -88,24 +87,25 @@ export default function ViewStores() {
 				</Table>
 			</div>
 			:
-			(allStores.length === 0) ?
+			(allStores.length === undefined) ?
 			<div>
-				<div className="text-center my-2">
-					<h2 className="font-link">Admin Store Dashboard</h2>
+				<div className="d-flex justify-content-center my-2">
+				<h2>Admin Store Dashboard</h2>
 				</div>
 				<div><AddStore /></div>
-
-				<p className="my-5 text-center">{message}</p>
+				<p className="my-5 text-center">
+					There is no registered store yet. Start adding them by clicking the "Add Store" Button
+				</p>
 			</div>
 			:
 			<div>
-				<div className="text-center my-2">
-					<h2 className="font-link">Admin Store Dashboard</h2>
-				</div>	
-				<Row className="d-flex justify-content-center">
-					<div className="text-center fs-5 pt-4">Loading...</div>	
-				</Row>
+				<div className="d-flex justify-content-center my-2">
+				<h2>Admin Store Dashboard</h2>
+				</div>
+				<div><AddStore /></div>
+				<p className="text-center fs-5 pt-4">Please wait while loading...</p>	
 			</div>
+						
 		}		
 		</>
 

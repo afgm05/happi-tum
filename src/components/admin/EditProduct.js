@@ -16,7 +16,7 @@ export default function EditProduct({ prodId }){
 	
 	
 	const openEdit = (prodId) => {
-		fetch(`https://happitum-trial.herokuapp.com/products/${prodId}`)
+		fetch(`https://happitum.herokuapp.com/products/${prodId}`)
 		.then(res => res.json())
 		.then(data => {
 			setName(data.name);
@@ -75,7 +75,7 @@ export default function EditProduct({ prodId }){
 
 		} else {
 
-			fetch(`https://happitum-trial.herokuapp.com/products/${prodId}`, {
+			fetch(`https://happitum.herokuapp.com/products/${prodId}`, {
 				method: "PUT",
 				headers: {
 					'Content-Type': 'application/json',

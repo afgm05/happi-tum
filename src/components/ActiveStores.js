@@ -12,7 +12,7 @@ export default function ActiveStores() {
 	const { user } = useContext(UserContext);
 	
 	useEffect(() => {
-		fetch('https://happitum-trial.herokuapp.com/stores/')
+		fetch('https://happitum.herokuapp.com/stores/')
 		.then(res => res.json())
 		.then(data => {
 			setAllStores(data)		
@@ -44,16 +44,36 @@ export default function ActiveStores() {
 				<Row className="pb-5 d-flex mt-5">
 					<h5 style={{fontFamily: 'Courgette', color: 'orange', fontSize: "25px", paddingBottom: "5px", paddingLeft: "250px"}}>
 					Choose from variety of Restaurants</h5>
-					<Col xs={7} className="d-flex flex-wrap ms-5">{activeStores}</Col>	
-					<Col xs={4} className="mt-5"><Banner /></Col>
+					{
+						activeStores.length ?
+						<>
+							<Col xs={7} className="d-flex flex-wrap ms-5">{activeStores}</Col>	
+							<Col xs={4} className="mt-5"><Banner /></Col>
+						</>
+						:
+						(activeStores.length === undefined) ?
+						<p className="text-center fs-5 pt-4">There is no registered store yet.</p>
+						:
+						<p className="text-center fs-5 pt-4">Please wait while loading...</p>	
+					}
 				</Row>
 			</>
 			:
 			<Row className="pb-5 mt-4 d-flex">
 				<h5 style={{fontFamily: 'Courgette', color: 'orange', fontSize: "25px", paddingBottom: "5px", paddingLeft: "250px"}}>
 				Choose from variety of Restaurants</h5>
-				<Col xs={7} className="d-flex flex-wrap ms-5">{activeStores}</Col>	
-				<Col xs={4} className="mt-4"><Banner /></Col>
+				{
+					activeStores.length ?
+					<>
+						<Col xs={7} className="d-flex flex-wrap ms-5">{activeStores}</Col>	
+						<Col xs={4} className="mt-5"><Banner /></Col>
+					</>
+					:
+					(activeStores.length === undefined) ?
+					<p className="text-center fs-5 pt-4">There is no registered store yet.</p>
+					:
+					<p className="text-center fs-5 pt-4">Please wait while loading...</p>	
+				}
 			</Row>
 		}	
 		</>

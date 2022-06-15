@@ -34,7 +34,7 @@ export default function Register() {
 	function registerUser(e) {
 		e.preventDefault();
 
-		fetch('https://happitum-trial.herokuapp.com/users/register', {
+		fetch('https://happitum.herokuapp.com/users/register', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -52,7 +52,8 @@ export default function Register() {
 				Swal.fire({
 					title: 'Ooopps!',
 					icon: 'error',
-					text: 'Email already exists. Login or register using another email.'
+					text: 'Email already exists. Login or register using another email.',
+					confirmButtonColor: '#3085d6'
 				})
 
 				setSuccessReg(false);

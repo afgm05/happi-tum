@@ -16,7 +16,7 @@ export default function ViewStoreProducts() {
 	const storeName = sessionStorage.getItem('storeName');
 
 	useEffect(() => {
-		fetch(`https://happitum-trial.herokuapp.com/stores/${storeId}/products`)
+		fetch(`https://happitum.herokuapp.com/stores/${storeId}/products`)
 		.then(res => res.json())
 		.then(data => {
 			setStoreProducts(data)
@@ -83,7 +83,6 @@ export default function ViewStoreProducts() {
 						<h3>{storeName}</h3>			
 					</div>
 					<div><AddProduct /></div>
-	
 					<p className="my-5 text-center">{message}</p>
 						
 				</div>
@@ -94,7 +93,7 @@ export default function ViewStoreProducts() {
 						<h3>{storeName}</h3>			
 					</div>
 					<Row className="d-flex justify-content-center">
-						<div className="text-center fs-5 pt-4">Loading...</div>	
+						<div className="text-center fs-5 pt-4">Please wait while loading...</div>	
 					</Row>
 				</div>
 			}

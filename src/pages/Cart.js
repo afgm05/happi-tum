@@ -12,7 +12,7 @@ export default function Cart() {
 	const [ ordersDisplay, setOrdersDisplay ] = useState();
 
 	useEffect(() => {
-		fetch('https://happitum-trial.herokuapp.com/users/getOrders', {
+		fetch('https://happitum.herokuapp.com/users/getOrders', {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -36,7 +36,7 @@ export default function Cart() {
 		setOrdersDisplay(ordersArr);
 	}, [allOrders])
 
-									
+				console.log(allOrders.length)					
 	return (
 		<>	
 			{
@@ -46,9 +46,14 @@ export default function Cart() {
 					{ordersDisplay}	
 				</div>
 				:
+				(allOrders.length === 0) ?
 				<div>
 					<EmptyCart /> 
 					<p className="text-center fs-4">You have no active order</p>
+				</div>
+				:
+				<div>
+					<p>Please wait while loading...</p>
 				</div>
 			}
 			<div style={{paddingTop: "140px"}}>

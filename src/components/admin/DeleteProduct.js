@@ -19,7 +19,7 @@ export default function DeleteOrder(prop) {
 		.then((result) => {		  	
 		  	if (result.isConfirmed) {
 
-		  		fetch('https://happitum-trial.herokuapp.com/products/delete', {
+		  		fetch('https://happitum.herokuapp.com/products/delete', {
 		  			method: 'DELETE',
 		  			headers: {
 		  				'Content-Type': 'application/json',

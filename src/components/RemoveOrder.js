@@ -8,7 +8,7 @@ export default function RemoveOrder() {
 
 	const removeOrder = () => {
 
-		fetch('https://happitum-trial.herokuapp.com/orders/remove', {
+		fetch('https://happitum.herokuapp.com/orders/remove', {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',
