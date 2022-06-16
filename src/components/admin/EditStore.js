@@ -157,7 +157,7 @@ export default function EditStore({ storeId }){
 					<Modal.Footer>
 						
 							<Button className="modalbutton" variant="secondary" onClick={closeEdit}>Close</Button>
-							<Button variant="success" type="submit">Submit</Button>
+							<Button variant="info" type="submit">Submit</Button>
 				
 					</Modal.Footer>
 				</Form>

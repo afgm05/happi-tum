@@ -26,11 +26,11 @@ export default function ProductCard({productProp}) {
 		 	<Card.Img className="prodCatalogImg" variant="top" src={`data:image/png;base64,${base64String}`} />
 		  	<Card.Body className="p-2">
 		  		<Row>
-				  	<Col xs={6}>
+				  	<Col xs={9}>
 					    <Card.Text className="py-0 my-0 fw-bold"> { name } </Card.Text>
 					    <Card.Text>{"\u20B1"} { price } </Card.Text>  		
 				  	</Col>
-				  	<Col xs={6} className="my-auto"><span className="fs-3 pe-1 d-flex justify-content-end"><BsCart4 /></span></Col>
+				  	<Col xs={3} className="my-auto"><span className="fs-3 pe-1 d-flex justify-content-end"><BsCart4 /></span></Col>
 			  	</Row>
 		  	</Card.Body>
 		</Card>

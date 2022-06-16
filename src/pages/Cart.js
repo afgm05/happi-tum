@@ -46,14 +46,9 @@ export default function Cart() {
 					{ordersDisplay}	
 				</div>
 				:
-				(allOrders.length === 0) ?
 				<div>
 					<EmptyCart /> 
 					<p className="text-center fs-4">You have no active order</p>
-				</div>
-				:
-				<div>
-					<p>Please wait while loading...</p>
 				</div>
 			}
 			<div style={{paddingTop: "140px"}}>
