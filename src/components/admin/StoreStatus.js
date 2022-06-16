@@ -10,7 +10,7 @@ export default function StoreStatus(props) {
 	let isActive = props.isActive;
 
 	const deactivateToggle = (storeId) => {
-		fetch(`https://happitum.herokuapp.com/stores/${storeId}/deactivate`,{
+		fetch(`http://localhost:4000/stores/${storeId}/deactivate`,{
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
@@ -23,8 +23,7 @@ export default function StoreStatus(props) {
 					title: 'success',
 					icon: 'success',
 					text: 'Store successfully disabled',
-					confirmButtonColor: '#3085d6'
-				
+					confirmButtonColor: '#3085d6'			
 				}).then (res => window.location.reload())				
 			}else {
 				Swal.fire({
@@ -39,7 +38,7 @@ export default function StoreStatus(props) {
 
 	
 	const activateToggle = (storeId) => {
-		fetch(`https://happitum.herokuapp.com/stores/${storeId}/activate`, {
+		fetch(`http://localhost:4000/stores/${storeId}/activate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
@@ -71,7 +70,7 @@ export default function StoreStatus(props) {
 			{isActive  ?
 				<Button variant="secondary" size="sm" className="btngrp" onClick={() => deactivateToggle(storeId)}>Disable</Button>
 				:
-				<Button variant="success" size="sm" onClick={() => activateToggle(storeId)}>Enable</Button>
+				<Button variant="success" size="sm" className="btngrp" onClick={() => activateToggle(storeId)}>Enable</Button>
 			}
 			
 		</>

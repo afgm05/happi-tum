@@ -25,7 +25,7 @@ export default function AddOrder() {
 			})
 
 		} else {
-			fetch('https://happitum.herokuapp.com/orders/AddOrder', {
+			fetch('http://localhost:4000/orders/AddOrder', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
