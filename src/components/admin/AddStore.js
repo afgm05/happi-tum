@@ -33,7 +33,7 @@ export default function AddStore(){
 		formData.append("address", address);
 		formData.append("storeImage", image);
 		
-		fetch(`https://happi-tum.herokuapp.com/stores/register`, {
+		fetch(`https://happitum.herokuapp.com/stores/register`, {
 			method: "POST",
 			headers: {
 					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
@@ -112,6 +112,7 @@ export default function AddStore(){
 						    <Form.Label>Store Image</Form.Label>
 						    <Form.Control
 						    		type="file" size="sm" 
+						    		required
 						    		onChange={fileOnChange}
 						    />
 						 </Form.Group>

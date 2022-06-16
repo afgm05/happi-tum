@@ -36,7 +36,7 @@ export default function AddProduct(){
 		formData.append("storeId", storeId);
 
 
-		fetch(`https://happi-tum.herokuapp.com/products/create`, {
+		fetch(`https://happitum.herokuapp.com/products/create`, {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
@@ -112,7 +112,8 @@ export default function AddProduct(){
 						<Form.Group controlId="formFileSm" className="my-2">
 						    <Form.Label>Product Image</Form.Label>
 						    <Form.Control
-						    		type="file" size="sm" 
+						    		type="file" size="sm"
+						    		required 
 						    		onChange={fileOnChange}
 						    />
 						 </Form.Group>

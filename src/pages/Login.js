@@ -28,7 +28,7 @@ useEffect(() => {
 function authentication(e) {
 	e.preventDefault();
 
-	fetch('https://happi-tum.herokuapp.com/users/login', {
+	fetch('https://happitum.herokuapp.com/users/login', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
@@ -47,7 +47,7 @@ function authentication(e) {
 			})
 
 			//get user's details from our token
-			fetch('https://happi-tum.herokuapp.com/users/details', {
+			fetch('https://happitum.herokuapp.com/users/details', {
 				headers: {
 					Authorization: `Bearer ${data.accessToken}`
 				}			

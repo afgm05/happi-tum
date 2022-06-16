@@ -12,7 +12,7 @@ export default function ActiveStores() {
 	const { user } = useContext(UserContext);
 	
 	useEffect(() => {
-		fetch('https://happi-tum.herokuapp.com/stores/')
+		fetch('https://happitum.herokuapp.com/stores/')
 		.then(res => res.json())
 		.then(data => {
 			setAllStores(data)		

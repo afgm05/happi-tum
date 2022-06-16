@@ -25,7 +25,7 @@ export default function AddOrder() {
 			})
 
 		} else {
-			fetch('https://happi-tum.herokuapp.com/orders/AddOrder', {
+			fetch('https://happitum.herokuapp.com/orders/AddOrder', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
