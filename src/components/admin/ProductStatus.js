@@ -17,14 +17,14 @@ export default function ProductStatus(props) {
 			}
 		})
 		.then(res => res.json())
-		.then(			
+		.then(res => {		
 			Swal.fire({
 				title: 'success',
 				icon: 'success',
 				text: 'Store successfully disabled',
 				confirmButtonColor: '#3085d6'
-			}).then (res => window.location.reload())						
-		)
+			}).then (res => window.location.reload())					
+		})
 	}
 
 	
@@ -36,14 +36,14 @@ export default function ProductStatus(props) {
 			}
 		})
 		.then(res => res.json())
-		.then(		
+		.then(res => {	
 			Swal.fire({
 				title: 'success',
 				icon: 'success',
 				text: 'Course successfully enabled',
 				confirmButtonColor: '#3085d6'
-			}).then (res => window.location.reload())	
-		)
+			}).then (res => window.location.reload())
+		})
 	}
 
 	return (
