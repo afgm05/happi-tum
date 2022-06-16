@@ -16,7 +16,7 @@ export default function EditProduct({ prodId }){
 	
 	
 	const openEdit = (prodId) => {
-		fetch(`https://happitum.herokuapp.com/products/${prodId}`)
+		fetch(`https://happi-tum.herokuapp.com/products/${prodId}`)
 		.then(res => res.json())
 		.then(data => {
 			setName(data.name);
@@ -50,7 +50,7 @@ console.log(newImage)
 			formData.append("price", price);
 			formData.append("productImage", image);
 
-			fetch(`https://happitum.herokuapp.com/products/${prodId}/withImage`, {
+			fetch(`https://happi-tum.herokuapp.com/products/${prodId}/withImage`, {
 				method: "PUT",
 				headers: {
 					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
@@ -82,7 +82,7 @@ console.log(newImage)
 					
 		} else {
 
-			fetch(`https://happitum.herokuapp.com/products/${prodId}`, {
+			fetch(`https://happi-tum.herokuapp.com/products/${prodId}`, {
 				method: "PUT",
 				headers: {
 					'Content-Type': 'application/json',

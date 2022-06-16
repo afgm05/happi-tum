@@ -40,7 +40,7 @@ export default function OrderCard({orderProp}) {
 		let orderId = sessionStorage.getItem('orderId');
 		let newQty = sessionStorage.getItem('quantity');
 
-		fetch('https://happitum.herokuapp.com/orders/editOrder', {
+		fetch('https://happi-tum.herokuapp.com/orders/editOrder', {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',
