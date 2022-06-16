@@ -1,4 +1,4 @@
-import React from 'react';
+simport React from 'react';
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
@@ -10,7 +10,7 @@ export default function ProductStatus(props) {
 	let isActive = props.isActive;
 
 	const deactivateToggle = (prodId) => {
-		fetch(`http://localhost:4000/products/${prodId}/archive`,{
+		fetch(`https://happitum.herokuapp.com/products/${prodId}/archive`,{
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -29,7 +29,7 @@ export default function ProductStatus(props) {
 
 	
 	const activateToggle = (prodId) => {
-		fetch(`http://localhost:4000/products/${prodId}/reactivate`, {
+		fetch(`https://happitum.herokuapp.com/products/${prodId}/reactivate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
