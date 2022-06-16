@@ -16,7 +16,7 @@ export default function EditProduct({ prodId }){
 	
 	
 	const openEdit = (prodId) => {
-		fetch(`https://happitum.herokuapp.com/products/${prodId}`)
+		fetch(`http://localhost:4000/products/${prodId}`)
 		.then(res => res.json())
 		.then(data => {
 			setName(data.name);
@@ -37,6 +37,7 @@ export default function EditProduct({ prodId }){
 		setImage(event.target.files[0]);
 	}
 	
+console.log(newImage)
 	const sendForm = (event) => {
 
 		event.preventDefault();	
@@ -49,33 +50,39 @@ export default function EditProduct({ prodId }){
 			formData.append("price", price);
 			formData.append("productImage", image);
 
-			fetch(`herokuapp.com/products/${prodId}/withImage`, {
+			fetch(`http://localhost:4000/products/${prodId}/withImage`, {
 				method: "PUT",
 				headers: {
 					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
 				},
 				body: formData,
 			})
-			.then(closeEdit())
-			.then(	
-				Swal.fire({
-					title: 'Success',
-					text: 'Item Successfully updated',
-					icon: 'success',
-					confirmButtonColor: '#3085d6',
-			  		confirmButtonText: 'Ok'
-				}).then(result => {
-					if(result.isConfirmed) {
+			.then(res => {
 
-						window.location.reload()
-					}
-				})
+				closeEdit();
 
-			)		
+				if (res) {
+					Swal.fire({
+						title: 'Success',
+						text: 'Item Successfully updated',
+						icon: 'success',
+						confirmButtonColor: '#3085d6',
+				  		confirmButtonText: 'Ok'
+					}).then(result => window.location.reload())
 
+				} else {
+					Swal.fire({
+						title: 'error',
+						icon: 'error',
+						text: 'Something went wrong. Please try again',
+						confirmButtonColor: '#3085d6'
+					}).then(result => window.location.reload())	
+				}
+			})
+					
 		} else {
 
-			fetch(`https://happitum.herokuapp.com/products/${prodId}`, {
+			fetch(`http://localhost:4000/products/${prodId}`, {
 				method: "PUT",
 				headers: {
 					'Content-Type': 'application/json',
@@ -87,24 +94,27 @@ export default function EditProduct({ prodId }){
 					price: price
 				})
 			})
-			.then(closeEdit())
-			.then(	
-				Swal.fire({
-					title: 'Success',
-					text: 'Item Successfully updated',
-					icon: 'success',
-					confirmButtonColor: '#3085d6',
-			  		confirmButtonText: 'Ok'
-				}).then(result => {
-					if(result.isConfirmed) {
-
-						window.location.reload()
-					}
-				})
-			)		
+			.then(res => {
+				closeEdit();
+				if(res) {
+					Swal.fire({
+						title: 'Success',
+						text: 'Item Successfully updated',
+						icon: 'success',
+						confirmButtonColor: '#3085d6',
+				  		confirmButtonText: 'Ok'
+					}).then(result => window.location.reload())		
+				} else {
+					Swal.fire({
+						title: 'error',
+						icon: 'error',
+						text: 'Something went wrong. Please try again',
+						confirmButtonColor: '#3085d6'
+					}).then(result => window.location.reload())		
+				}
+			})
 		}		
 	}	
-
 
 	return (
 		<>

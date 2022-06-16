@@ -10,7 +10,7 @@ export default function RemoveOrderItem(props) {
 
 	const removeOrderItem = () => {
 
-		fetch('https://happitum.herokuapp.com/orders/deleteItem', {
+		fetch('http://localhost:4000/orders/deleteItem', {
 			method: 'DELETE',
 			headers: {
 				'Content-Type': 'application/json',

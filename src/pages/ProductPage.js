@@ -14,7 +14,7 @@ export default function Product() {
 	
 	
 	useEffect(() => {
-		fetch(`https://happitum.herokuapp.com/products/${productId}`)
+		fetch(`http://localhost:4000/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
 			setProduct(data)

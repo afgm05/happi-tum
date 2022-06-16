@@ -19,7 +19,7 @@ export default function DeleteOrder(prop) {
 		.then((result) => {		  	
 		  	if (result.isConfirmed) {
 
-		  		fetch('https://happitum.herokuapp.com/products/delete', {
+		  		fetch('http://localhost:4000/products/delete', {
 		  			method: 'DELETE',
 		  			headers: {
 		  				'Content-Type': 'application/json',
@@ -39,6 +39,13 @@ export default function DeleteOrder(prop) {
 		  			})
 		  			.then(result => window.location.reload(false))
 		  		)	
+			} else {
+				Swal.fire({
+					title: 'error',
+					icon: 'error',
+					text: 'Something went wrong. Please try again',
+					confirmButtonColor: '#3085d6'
+				}).then(result => window.location.reload())
 			}
 		})
 	}

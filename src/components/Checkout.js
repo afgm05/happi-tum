@@ -8,7 +8,7 @@ export default function Checkout() {
 
 	const checkOut = () => {
 
-		fetch('https://happitum.herokuapp.com/history/checkout', {
+		fetch('http://localhost:4000/history/checkout', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

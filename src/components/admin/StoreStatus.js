@@ -10,15 +10,15 @@ export default function StoreStatus(props) {
 	let isActive = props.isActive;
 
 	const deactivateToggle = (storeId) => {
-		fetch(`https://happitum.herokuapp.com/stores/${storeId}/deactivate`,{
+		fetch(`http://localhost:4000/stores/${storeId}/deactivate`,{
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
 			}
 		})
 		.then(res => res.json())
-		.then(data =>{
-			if(data === true) {
+		.then(res =>{
+			if(res) {
 				Swal.fire({
 					title: 'success',
 					icon: 'success',
@@ -38,15 +38,15 @@ export default function StoreStatus(props) {
 
 	
 	const activateToggle = (storeId) => {
-		fetch(`https://happitum.herokuapp.com/stores/${storeId}/activate`, {
+		fetch(`http://localhost:4000/stores/${storeId}/activate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
 			}
 		})
 		.then(res => res.json())
-		.then(data => {
-			if(data === true) {
+		.then(res => {
+			if(res) {
 				Swal.fire({
 					title: 'success',
 					icon: 'success',

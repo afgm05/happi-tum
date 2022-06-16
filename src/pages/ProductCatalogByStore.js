@@ -15,7 +15,7 @@ export default function ProductCatalogByStore() {
 	const header = `${storeName}'s Menu`;
 	
 	useEffect(() => {
-		fetch(`https://happitum.herokuapp.com/stores/${storeId}/products`)
+		fetch(`http://localhost:4000/stores/${storeId}/products`)
 		.then(res => res.json())
 		.then(data => {
 			setStoreProducts(data)

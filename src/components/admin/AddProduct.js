@@ -36,29 +36,33 @@ export default function AddProduct(){
 		formData.append("storeId", storeId);
 
 
-		fetch(`https://happitum.herokuapp.com/products/create`, {
+		fetch(`http://localhost:4000/products/create`, {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
 			},
 			body: formData,
 		})
-		.then(closeAdd())
-		.then(	
-			Swal.fire({
-				title: 'Success',
-				text: 'Item Successfully added',
-				icon: 'success',
-				confirmButtonColor: '#3085d6',
-		  		confirmButtonText: 'Ok'
-			}).then(result => {
-				if(result.isConfirmed) {
+		.then(res => {
+			closeAdd();
 
-					window.location.reload()
-				}
-			})
-
-		)			
+			if(res) {
+				Swal.fire({
+					title: 'Success',
+					text: 'Item Successfully added',
+					icon: 'success',
+					confirmButtonColor: '#3085d6',
+			  		confirmButtonText: 'Ok'
+				}).then(result => window.location.reload())
+			} else {
+				Swal.fire({
+					title: 'error',
+					icon: 'error',
+					text: 'Something went wrong. Please try again',
+					confirmButtonColor: '#3085d6'
+				}).then(result => window.location.reload())
+			}
+		})			
 	}
 	
 	return (

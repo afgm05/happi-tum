@@ -10,40 +10,58 @@ export default function ProductStatus(props) {
 	let isActive = props.isActive;
 
 	const deactivateToggle = (prodId) => {
-		fetch(`https://happitum.herokuapp.com/products/${prodId}/archive`,{
+		fetch(`http://localhost:4000/products/${prodId}/archive`,{
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
 			}
 		})
 		.then(res => res.json())
-		.then(			
-			Swal.fire({
-				title: 'success',
-				icon: 'success',
-				text: 'Store successfully disabled',
-				confirmButtonColor: '#3085d6'
-			}).then (res => window.location.reload())						
-		)
+		.then( res => {
+			if(res) {
+				Swal.fire({
+					title: 'success',
+					icon: 'success',
+					text: 'Store successfully disabled',
+					confirmButtonColor: '#3085d6'
+				}).then (res => window.location.reload())	
+			} else {
+				Swal.fire({
+					title: 'error',
+					icon: 'error',
+					text: 'Something went wrong',
+					confirmButtonColor: '#3085d6'
+				}).then (res => window.location.reload())
+			}
+		})			
 	}
 
 	
 	const activateToggle = (prodId) => {
-		fetch(`https://happitum.herokuapp.com/products/${prodId}/reactivate`, {
+		fetch(`http://localhost:4000/products/${prodId}/reactivate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
 			}
 		})
 		.then(res => res.json())
-		.then(		
-			Swal.fire({
-				title: 'success',
-				icon: 'success',
-				text: 'Course successfully enabled',
-				confirmButtonColor: '#3085d6'
-			}).then (res => window.location.reload())	
-		)
+		.then(res => {
+			if (res) {
+				Swal.fire({
+					title: 'success',
+					icon: 'success',
+					text: 'Course successfully enabled',
+					confirmButtonColor: '#3085d6'
+				}).then (res => window.location.reload())		
+			} else {
+				Swal.fire({
+					title: 'error',
+					icon: 'error',
+					text: 'Something went wrong',
+					confirmButtonColor: '#3085d6'
+				}).then (res => window.location.reload())	
+			}
+		})
 	}
 
 	return (
