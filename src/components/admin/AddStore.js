@@ -48,13 +48,8 @@ export default function AddStore(){
 				icon: 'success',
 				confirmButtonColor: '#3085d6',
 		  		confirmButtonText: 'Ok'
-			}).then(result => {
-				if(result.isConfirmed) {
-					window.location.reload()
-				}
-			})
-
-		)		
+			}).then(result => window.location.reload())
+		)	
 	}	
 
 
