@@ -23,15 +23,16 @@ export default function ProductStatus(props) {
 					title: 'success',
 					icon: 'success',
 					text: 'Store successfully disabled'
-				}).then (res => window.location.reload())	
+				})	
 			} else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
 					text: 'Something went wrong'
-				}).then (res => window.location.reload())	
+				})	
 			}
 		})
+		window.location.reload()
 	}
 
 	
@@ -49,13 +50,15 @@ export default function ProductStatus(props) {
 				Swal.fire({
 					title: 'success',
 					icon: 'success',
-					text: 'Course successfully enabled'
+					text: 'Course successfully enabled',
+					confirmButtonColor: '#3085d6'
 				})
 			}else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
-					text: 'Something went wrong'
+					text: 'Something went wrong',
+					confirmButtonColor: '#3085d6'
 				})
 				
 			}

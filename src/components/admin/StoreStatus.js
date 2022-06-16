@@ -22,14 +22,16 @@ export default function StoreStatus(props) {
 				Swal.fire({
 					title: 'success',
 					icon: 'success',
-					text: 'Store successfully disabled'
+					text: 'Store successfully disabled',
+					confirmButtonColor: '#3085d6'
 				
 				}).then (res => window.location.reload())				
 			}else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
-					text: 'Something went wrong'
+					text: 'Something went wrong',
+					confirmButtonColor: '#3085d6'
 				}).then (res => window.location.reload())		
 			}
 		})
@@ -49,14 +51,16 @@ export default function StoreStatus(props) {
 				Swal.fire({
 					title: 'success',
 					icon: 'success',
-					text: 'Course successfully enabled'
+					text: 'Course successfully enabled',
+					confirmButtonColor: '#3085d6'
 				}).then (res => window.location.reload())
 				
 			}else {
 				Swal.fire({
 					title: 'error',
 					icon: 'error',
-					text: 'Something went wrong'
+					text: 'Something went wrong',
+					confirmButtonColor: '#3085d6'
 				}).then (res => window.location.reload())
 			}
 		})
