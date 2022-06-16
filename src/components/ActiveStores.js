@@ -12,7 +12,7 @@ export default function ActiveStores() {
 	const { user } = useContext(UserContext);
 	
 	useEffect(() => {
-		fetch('http://localhost:4000/stores/')
+		fetch('https://happitum.herokuapp.com/stores/')
 		.then(res => res.json())
 		.then(data => {
 			setAllStores(data)		
@@ -52,9 +52,9 @@ export default function ActiveStores() {
 						</>
 						:
 						(activeStores.length === undefined) ?
-						<p className="text-center fs-5 pt-4">There is no registered store yet.</p>
+						<p className="text-center fs-5 py-4 mt-4">There is no registered store yet.</p>
 						:
-						<p className="text-center fs-5 pt-4">Please wait while loading...</p>	
+						<p className="text-center fs-5 py-4 mt-4">Please wait while loading...</p>	
 					}
 				</Row>
 			</>
@@ -70,9 +70,9 @@ export default function ActiveStores() {
 					</>
 					:
 					(activeStores.length === undefined) ?
-					<p className="text-center fs-5 pt-4">There is no registered store yet.</p>
+					<p className="text-center fs-5 py-5 mt-3">There is no registered store yet.</p>
 					:
-					<p className="text-center fs-5 pt-4">Please wait while loading...</p>	
+					<p className="text-center fs-5 py-5 mt-3">Please wait while loading...</p>	
 				}
 			</Row>
 		}	

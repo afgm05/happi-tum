@@ -12,7 +12,7 @@ export default function Cart() {
 	const [ ordersDisplay, setOrdersDisplay ] = useState();
 
 	useEffect(() => {
-		fetch('http://localhost:4000/users/getOrders', {
+		fetch('https://happitum.herokuapp.com/users/getOrders', {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`

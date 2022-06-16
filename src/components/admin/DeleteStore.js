@@ -19,7 +19,7 @@ export default function DeleteStore(prop) {
 		.then((result) => {
 		  	
 		  	if (result.isConfirmed) {
-			  	fetch('http://localhost:4000/stores/delete', {
+			  	fetch('https://happitum.herokuapp.com/stores/delete', {
 			  		method: 'DELETE',
 			  		headers: {
 			  			'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ export default function History() {
 
 
 	useEffect(() => {
-		fetch(`http://localhost:4000/history/all`, {
+		fetch(`https://happitum.herokuapp.com/history/all`, {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${ localStorage.getItem('accessToken')}`
@@ -97,7 +97,7 @@ export default function History() {
 			</div>
 			:
 			<div>
-				<p className="my-5 py-5 text-center fs-4">You have not made any purchase yet.</p>
+				<p className="my-5 py-5 text-center fs-5">You have not made any purchase yet.</p>
 			</div>
 		}
 		</>
