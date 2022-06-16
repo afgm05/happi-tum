@@ -1,4 +1,4 @@
-simport React from 'react';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
@@ -17,14 +17,14 @@ export default function ProductStatus(props) {
 			}
 		})
 		.then(res => res.json())
-		.then(res => {		
+		.then(			
 			Swal.fire({
 				title: 'success',
 				icon: 'success',
 				text: 'Store successfully disabled',
 				confirmButtonColor: '#3085d6'
-			}).then (res => window.location.reload())					
-		})
+			}).then (res => window.location.reload())						
+		)
 	}
 
 	
@@ -36,14 +36,14 @@ export default function ProductStatus(props) {
 			}
 		})
 		.then(res => res.json())
-		.then(res => {	
+		.then(		
 			Swal.fire({
 				title: 'success',
 				icon: 'success',
 				text: 'Course successfully enabled',
 				confirmButtonColor: '#3085d6'
-			}).then (res => window.location.reload())
-		})
+			}).then (res => window.location.reload())	
+		)
 	}
 
 	return (
