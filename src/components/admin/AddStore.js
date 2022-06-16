@@ -40,16 +40,25 @@ export default function AddStore(){
 			},
 			body: formData,
 		})
-		.then(closeAdd())
-		.then(	
-			Swal.fire({
-				title: 'Success',
-				text: 'Store Successfully Registered',
-				icon: 'success',
-				confirmButtonColor: '#3085d6',
-		  		confirmButtonText: 'Ok'
-			}).then(result => window.location.reload())
-		)	
+		.then( res => { 
+			closeAdd();
+			if (res) {
+				Swal.fire({
+					title: 'Success',
+					text: 'Store Successfully Registered',
+					icon: 'success',
+					confirmButtonColor: '#3085d6',
+			  		confirmButtonText: 'Ok'
+				}).then(result => window.location.reload())
+			} else {
+				Swal.fire({
+					title: 'error',
+					icon: 'error',
+					text: 'Something went wrong. Please try again',
+					confirmButtonColor: '#3085d6'
+				}).then(result => window.location.reload())
+			} 
+		})
 	}	
 
 
