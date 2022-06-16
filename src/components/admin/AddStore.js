@@ -33,7 +33,7 @@ export default function AddStore(){
 		formData.append("address", address);
 		formData.append("storeImage", image);
 		
-		fetch(`https://happitum.herokuapp.com/stores/register`, {
+		fetch(`https://happi-tum.herokuapp.com/stores/register`, {
 			method: "POST",
 			headers: {
 					Authorization: `Bearer ${ localStorage.getItem('accessToken') }`

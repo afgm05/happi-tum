@@ -14,7 +14,7 @@ export default function EditStore({ storeId }){
 	const [image, setImage] = useState();	
 	
 	const openEdit = (storeId) => {
-		fetch(`https://happitum.herokuapp.com/stores/${storeId}/details`)
+		fetch(`https://happi-tum.herokuapp.com/stores/${storeId}/details`)
 		.then(res => res.json())
 		.then(data => {
 			setName(data.storeName);
@@ -48,7 +48,7 @@ export default function EditStore({ storeId }){
 				formData.append("address", address);
 				formData.append("storeImage", image);
 
-				fetch(`https://happitum.herokuapp.com/stores/${storeId}/withImage`, {
+				fetch(`https://happi-tum.herokuapp.com/stores/${storeId}/withImage`, {
 					method: "PUT",
 					headers: {
 							Authorization: `Bearer ${ localStorage.getItem('accessToken') }`
@@ -71,7 +71,7 @@ export default function EditStore({ storeId }){
 										
 		} else {
 
-			fetch(`https://happitum.herokuapp.com/stores/${storeId}`, {
+			fetch(`https://happi-tum.herokuapp.com/stores/${storeId}`, {
 				method: "PUT",
 				headers: {
 					'Content-Type': 'application/json',

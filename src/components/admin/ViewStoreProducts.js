@@ -16,7 +16,7 @@ export default function ViewStoreProducts() {
 	const storeName = sessionStorage.getItem('storeName');
 
 	useEffect(() => {
-		fetch(`https://happitum.herokuapp.com/stores/${storeId}/products`)
+		fetch(`https://happi-tum.herokuapp.com/stores/${storeId}/products`)
 		.then(res => res.json())
 		.then(data => {
 			setStoreProducts(data)
