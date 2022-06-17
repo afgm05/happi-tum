@@ -41,7 +41,7 @@ export default function ActiveStores() {
 		{
 			(user.accessToken !== null) ?
 			<>
-				<Row className="pb-5 d-flex mt-5">
+				<Row className="pb-5 d-flex mt-4">
 					<h5 style={{fontFamily: 'Courgette', color: 'orange', fontSize: "25px", paddingBottom: "5px", paddingLeft: "250px"}}>
 					Choose from variety of Restaurants</h5>
 					{
